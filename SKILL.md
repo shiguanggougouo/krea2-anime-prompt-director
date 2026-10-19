@@ -1,9 +1,9 @@
 ---
 name: krea2-anime-prompt-director
-description: A Time AI-created skill for enhancing Krea 2 anime prompts, character designs, cinematic compositions, and richly detailed anime environments. Use when creating or improving prompts for Krea 2 anime illustrations and backgrounds.
-metadata:
-  author: "Time AI"
-  version: "1.5.0"
+description: A Time AI-created skill for enhancing Krea 2 anime prompts, character designs, cinematic compositions, and richly detailed anime environments. Use when creating or improving prompts for Krea 2 anime illustrations and backgrounds.  
+metadata:  
+  author: "Time AI"  
+  version: "1.6.0"  
 ---
 
 # Time AI · Krea 2 Anime Prompt Director
@@ -15,10 +15,11 @@ Use this skill to transform a short idea into a complete visual direction for Kr
 1. **Write for Krea 2, not Anima.** Use connected natural-language descriptions. Do not prepend fixed Danbooru tag strings, score tags, `masterpiece`, `best quality`, `8k`, or `very aesthetic` macros. Do not use the old `@artist_name` syntax. Use tags only when the user specifically requests a tag list or a catalog's original tags as a separate artifact.
 2. **Art direction is a decision, not a pile of adjectives.** Choose one dominant anime visual language that fits the requested mood. Describe its palette, line quality, light behavior, painting medium, and emotional register. Avoid stacking unrelated studios or contradictory visual traits. If the user explicitly wants a hybrid, use one dominant anchor plus one clearly bounded twist.
 3. **A scene must be reconstructed, not named.** Whenever the user has not specified an environment, automatically choose a story-rich, visually striking classic setting from the character's original anime, manga, or game world—even when the user supplies an action, style, or mood but no location. A place or event name (such as “World Martial Arts Tournament”) is only a label; convert it into a drawable description of what is physically there, how it is arranged, and what makes it recognizable. Describe architecture, objects, spatial relationships, materials, scale, weather, time, lighting, and story clues. Never expect the image model to infer the scene from its proper noun. When an environment is specified, preserve it and enrich it instead of replacing it. The background should feel distinctive to that world.
-4. **Detail must improve composition.** Build a legible focal hierarchy: foreground framing, middle-ground action or location, and distant background. Add selective details that lead the eye toward the focal subject. Do not decorate every surface or bury the character in effects.
-5. **Make character identity visually specific.** For a named character, describe a small set of high-information traits that distinguish this exact design: hair shape and arrangement, face/eyes or signature markings, build and silhouette, signature clothing layers/colors/materials, and characteristic accessories or props. Select details that are visible at the requested framing; don't settle for a name plus generic outfit labels. Preserve canon when reliably known and don't invent it.
-6. **Be transparent about reference lookup.** Never claim to have consulted the Krea2 Character Catalog unless an actual entry, export, or accessible page was inspected during this task. The catalog is provisional; treat entries as useful evidence, not guaranteed canon or proof of training data.
-7. **Translate faithfully.** Chinese output must reflect the same subject, action, composition, lighting, palette, atmosphere, and art direction as the English prompt. It may read naturally in Chinese but must not silently add or remove visual requirements.
+4. **Pose for a story beat, not a character sheet.** Unless the user asks for a portrait, calm pose, or still scene, give the character a specific, memorable action that belongs in this place. Describe the body mechanics, direction of force, expression, and a visible consequence in the surroundings. For multiple characters, define what each one does to and in response to the others; do not line them up in unrelated poses. Use `references/action-direction.md` for the full method.
+5. **Detail must improve composition.** Build a legible focal hierarchy: foreground framing, middle-ground action or location, and distant background. Add selective details that lead the eye toward the focal subject. Do not decorate every surface or bury the character in effects.
+6. **Make character identity visually specific.** For a named character, describe a small set of high-information traits that distinguish this exact design: hair shape and arrangement, face/eyes or signature markings, build and silhouette, signature clothing layers/colors/materials, and characteristic accessories or props. Select details that are visible at the requested framing; don't settle for a name plus generic outfit labels. Preserve canon when reliably known and don't invent it.
+7. **Be transparent about reference lookup.** Never claim to have consulted the Krea2 Character Catalog unless an actual entry, export, or accessible page was inspected during this task. The catalog is provisional; treat entries as useful evidence, not guaranteed canon or proof of training data.
+8. **Translate faithfully.** Chinese output must reflect the same subject, action, composition, lighting, palette, atmosphere, and art direction as the English prompt. It may read naturally in Chinese but must not silently add or remove visual requirements.
 
 ## Workflow
 
@@ -29,7 +30,8 @@ Select the closest intent, combining them only when useful:
 - **Character + canon world, no environment specified:** choose a recognizable, story-rich classic place or moment from the character's original anime, manga, or game world. This applies whether the user entered only a character name or also gave an action, mood, or visual style without naming a setting.
 - **Character + specified environment:** preserve the requested environment, then add canon-consistent physical details and story cues without replacing the premise.
 - **Character + specified scene:** preserve the user's scene and enrich it without replacing their premise.
-- **Action / combat / ability:** make body mechanics, action direction, impact, effect behavior, environment reaction, and camera angle readable.
+- **Action / combat / ability:** read `references/action-direction.md`; choose one decisive instant and make force direction, body mechanics, target, impact or near-contact, and environment response readable.
+- **Multiple characters:** read `references/action-direction.md`; stage a specific exchange with distinct roles, eyelines, spatial relation, and an observable reaction for every important participant.
 - **Background only:** treat the location as the subject; explicitly keep people out of frame when an empty background is requested.
 - **Original anime character:** build a cohesive design language and a plausible, specific setting without pretending it belongs to an existing IP.
 - **Style exploration:** explain the visual language through concrete art-direction cues; use one primary style anchor.
@@ -87,7 +89,7 @@ Use `references/style-language.md` to select the best-fitting style. Keep a cano
 For a character-led scene, normally cover these elements in this order:
 
 1. **Medium and intent:** for example, “A cinematic 2D anime key illustration…” or “A hand-painted anime background painting…”. State the intended image type early.
-2. **Focal subject and identity:** name the character, then anchor their design with a compact feature set: distinctive hair, face/eyes/markings, silhouette or build, signature costume pieces and colors, and recognizable accessory/prop. Add expression, pose, and action. Prioritize details visible in this framing; don't hide identity cues behind effects or crop them out.
+2. **Focal subject and identity:** name the character, then anchor their design with a compact feature set: distinctive hair, face/eyes/markings, silhouette or build, signature costume pieces and colors, and recognizable accessory/prop. Choose a story-appropriate action and expression. For action or interaction scenes, apply `references/action-direction.md` before writing the pose; keep the face and identity cues readable in the chosen framing.
 3. **Specific place and story beat:** identify the physical kind of place, its recognizable visible features, their spatial arrangement, and what is happening there. A proper name can anchor the scene but cannot replace its drawable description.
 4. **Foreground:** choose a few framing details (leaves, wet railings, lanterns, branches, drifting petals, window frames, smoke, or other scene-specific elements).
 5. **Middle ground:** describe the subject's immediate surroundings, architecture, ground materials, props, and spatial relationships.
@@ -125,6 +127,8 @@ For classic or story-rich locations, include at least:
 
 For a canon scene, make its setting recognizable from visual evidence, not just the character's name. When the user omitted the environment, apply Step 1B and choose one. A “classic scene” should still be an original composition rather than a claim to reproduce a specific frame exactly. For repeat requests, apply Step 1C.
 
+For any character-led prompt, also check whether the request calls for action or a relationship between characters. If so, follow `references/action-direction.md`; a pose name such as “dynamic stance” or “fighting pose” is not enough to communicate a drawable action.
+
 ### Step 6 — Keep the prompt Krea 2-oriented
 
 - Write fluent, specific English; prefer short concrete descriptions over synonym chains.
@@ -157,6 +161,10 @@ Before answering, silently check:
 - Did I choose the character's form and outfit for the requested arc, location, role, or moment instead of reusing a default design?
 - Are the character's hair/form, clothing, props, and condition consistent with one story moment rather than mixed across variants?
 - Does the character have several concrete, framing-appropriate identity cues instead of only a name or generic outfit label?
+- Does the pose express a specific intention through a clear body line, weight shift, action direction, and readable expression rather than a generic front-facing stance?
+- If an action is shown, can the viewer tell what the character is doing, where the force goes, and how the scene responds at this exact instant?
+- If multiple characters are present, is there a clear relationship or exchange, with distinct roles, eyelines, spacing or contact, and visible reactions rather than parallel posing?
+- Does the action fit the location's physical affordances, atmosphere, and the character's canon personality or role?
 - Are the face, silhouette, signature costume, and accessories described only to the extent they are known and visible?
 - Is there one coherent primary style rather than a list of unrelated aesthetics?
 - Is the place concretely described, beyond a location name?
@@ -166,4 +174,4 @@ Before answering, silently check:
 - Did I remove generic quality macros and obsolete Anima-specific syntax?
 - Does the Chinese translation preserve the English prompt's visual decisions?
 
-For extended art-direction examples, consult `references/style-language.md` and `references/examples.md`. For catalog lookup limitations and evidence handling, consult `references/catalog-workflow.md` and `references/source-notes.md`.
+For action choreography and multi-character staging, consult `references/action-direction.md`. For extended art-direction examples, consult `references/style-language.md` and `references/examples.md`. For catalog lookup limitations and evidence handling, consult `references/catalog-workflow.md` and `references/source-notes.md`.

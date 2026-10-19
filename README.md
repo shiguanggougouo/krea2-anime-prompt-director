@@ -1,7 +1,7 @@
 # Time AI · Krea 2 Anime Prompt Director
 
 ![Krea 2](https://img.shields.io/badge/Krea-2-7C5CFF?style=flat-square)
-![Version](https://img.shields.io/badge/version-1.5.0-111827?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.6.0-111827?style=flat-square)
 ![Format](https://img.shields.io/badge/format-Agent%20Skill-0EA5E9?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-22C55E?style=flat-square)
 
@@ -11,12 +11,13 @@
 
 A reusable agent skill that turns a short Chinese or English idea into a **complete, Krea 2-ready anime prompt** — with a faithful Chinese translation alongside it.
 
-It does four things a generic "prompt enhancer" does not:
+It does five things a generic "prompt enhancer" does not:
 
 1. **Anchors character identity in visible evidence** — hair shape and arrangement, eyes and markings, silhouette, signature costume layers, colors and materials, props — selected for the framing you asked for.
 2. **Rebuilds locations instead of naming them** — "World Martial Arts Tournament" becomes a raised pale-stone ring with a red boundary line, crowded stepped stands, painted posts, banners and a tiled entrance pavilion.
 3. **Automatically fills an unspecified environment** — if you only give a character name, it picks a story-rich classic setting from that character's own anime, manga or game canon and describes the actual scenery.
 4. **Keeps repeat requests distinct** — when the same character comes back in a conversation, both the setting/story beat and the action change.
+5. **Stages action and interaction** — one decisive instant with intent, weight, direction of force and a visible consequence in the scene; with several characters, a readable exchange of who initiates, who responds, and where eyelines and contact land. Never "dynamic pose" or "fighting pose."
 
 It is grounded in the two official Krea anime guides plus an evidence-aware workflow for the community Krea2 Character Catalog.
 
@@ -81,25 +82,27 @@ paperback...
 | Writes "at the World Martial Arts Tournament" and expects the model to know it | Converts the proper noun into a drawable physical layout with recognizable identifiers |
 | Reuses one default outfit for every scene | Resolves the character's **story-moment version** first — arc, location, role, transformation |
 | Same character, same pose, same place every time | Tracks used scene/action pairs and varies both on repeat requests |
+| "Dynamic pose", "fighting pose", figures lined up side by side | One drawable instant with body mechanics, force direction, environment response — and for groups, a real exchange with distinct roles and reactions |
 | Claims "I checked the catalog" | Only claims a catalog lookup if an entry was genuinely inspected |
 
 ---
 
 ## Changelog
 
-Version history lives in [CHANGELOG.md](CHANGELOG.md) — 1.0.0 through 1.5.0, each entry describing the generation problem it fixed.
+Version history lives in [CHANGELOG.md](CHANGELOG.md) — 1.0.0 through 1.6.0, each entry describing the generation problem it fixed.
 
 ## Files
 
 | File | What it holds |
 |---|---|
 | `SKILL.md` | Core behavior, workflow, and required output format |
+| `references/action-direction.md` | Action staging and character interaction: one decisive instant, body mechanics, environment response, multi-character exchange |
 | `references/style-language.md` | Style-selection matrix, scene-design language bank, prompt scaffolds |
 | `references/examples.md` | Full EN/CN examples — character scenes, action, environment-only, variant selection |
 | `references/catalog-workflow.md` | How to use Krea2 Character Catalog entries without overstating reliability |
 | `references/source-notes.md` | Source URLs, source-derived findings, verification boundaries |
 | `docs/index.html` | Project landing page (GitHub Pages source, Chinese/English toggle) |
-| `CHANGELOG.md` | Version history from 1.0.0 to 1.5.0 |
+| `CHANGELOG.md` | Version history from 1.0.0 to 1.6.0 |
 | `README.zh-CN.md` | Chinese edition of this README |
 
 ## Built-in style anchors

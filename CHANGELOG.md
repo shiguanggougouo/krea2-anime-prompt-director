@@ -4,6 +4,32 @@
 
 ---
 
+## 1.6.0 — 2026-10-19
+
+**动作要让人记住，多人要有交流**
+
+起因：出图里角色动作很"呆"——并排摆姿势、动作和环境没关系、多人之间没有互动。
+
+- 新增 `references/action-direction.md`：动作与角色互动的完整方法
+- 动作必须有明确意图、重心、发力方向，并在环境里留下可见后果；只写"动态姿势""战斗姿势"不算
+- 只定格一个瞬间：预备、决定性的接触、或跟随动作。不把连续动作全塞进一帧
+- 场景要参与动作：墙、树枝、栏杆、台阶、水流、阵风成为动作的支点或阻力，并给出接触点的反应
+- 多人画面要有可读取的交流：谁先动手、对方如何回应、视线交汇在哪、接触点在哪、身体与空间各自发生了什么改变
+- 新增两组中英案例：**林克暴雨山道跃越**（单人动作与环境耦合）、**悟空与比克对练**（双人攻防与反应）
+- 参考了 Krea 对动势、重量感与焦点瞬间的说明，以及 Disney Animation 关于预备动作、跟随动作、清晰调度与角色反应的原则
+
+**Memorable action, real interaction**
+
+- Added `references/action-direction.md`: a full method for action and character interaction
+- Every action needs a clear intention, weight shift and direction of force, with a visible consequence in the surroundings — "dynamic pose" is not enough
+- One instant only: anticipation, the decisive contact, or follow-through — never a narrated sequence in a single frame
+- The setting participates: walls, branches, railings, stairs, water and gusts enable, interrupt or redirect the movement, with a reaction at the contact point
+- Multi-character images stage a readable exchange: who initiates, who responds, where eyelines meet, where contact happens, and what changes across bodies and space
+- Two new EN/CN examples: **Link leaping a collapsed mountain path in a storm**, and **Goku sparring with Piccolo**
+- Informed by Krea's notes on motion, weight and focal beats, and Disney Animation's principles of anticipation, follow-through, clear staging and character reaction
+
+---
+
 ## 1.5.0 — 2026-10-18
 
 **扩写输出长度**

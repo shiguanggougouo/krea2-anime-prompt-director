@@ -1,7 +1,7 @@
 # Time AI · Krea 2 Anime Prompt Director
 
 ![Krea 2](https://img.shields.io/badge/Krea-2-7C5CFF?style=flat-square)
-![Version](https://img.shields.io/badge/version-1.5.0-111827?style=flat-square)
+![Version](https://img.shields.io/badge/version-1.6.0-111827?style=flat-square)
 ![Format](https://img.shields.io/badge/format-Agent%20Skill-0EA5E9?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-22C55E?style=flat-square)
 
@@ -9,12 +9,13 @@
 
 一个可复用的 Agent 技能：把一句中文或英文的简短想法，扩写成**完整、可直接投喂 Krea 2 的动漫提示词**，并附一份忠实的中文对照。
 
-它做四件通用「提示词优化器」做不到的事：
+它做五件通用「提示词优化器」做不到的事：
 
 1. **把角色身份落在可见证据上** —— 发型形状与走向、眼睛与标志性纹样、轮廓、标志性服装层次、颜色与材质、随身道具，并按照你要求的镜头远近做取舍。
 2. **还原地点，而不是报出名字** —— 「天下第一武道会」会被写成高起的浅色石质擂台、红色边界线、环绕的阶梯看台、刷漆的立柱、旗帜和带瓦顶的入口楼阁。
 3. **自动补全没指定的环境** —— 只给一个角色名时，它会从该角色所属动漫、漫画或游戏的原著里，挑一个极具故事感的经典场景，并把环境具体画出来。
 4. **重复请求不撞车** —— 同一角色在一次对话里再次出现时，场景与剧情节点、动作都会换新。
+5. **动作和互动真的有戏** —— 只定格一个决定性瞬间：意图、重心与支撑、发力方向，以及环境里看得见的后果。多人画面则是可读取的交流：谁先动手、谁回应、视线与接触点落在哪里。不会写「动态姿势」「战斗姿势」，也不会让几个角色并排各摆各的。
 
 依据来自 Krea 官方的两篇动漫指南，加上一套对社区 Krea2 Character Catalog 保持证据意识的取用流程。
 
@@ -79,25 +80,27 @@ paperback...
 | 写「在天下第一武道会」，指望模型自己认识 | 把专有名词翻译成可画的物理布局与可识别特征 |
 | 所有场景复用同一套默认造型 | 先判定角色的**剧情阶段版本** —— 篇章、地点、身份、变身状态 |
 | 同一个角色永远是同一个姿势同一个地点 | 记录已用过的场景与动作组合，重复请求时两者都换 |
+| 写「动态姿势」「战斗姿势」，几个人并排摆造型 | 一个可画的瞬间：肢体力学、发力方向、环境反应；多人则是有角色分工与回应的真实交流 |
 | 声称「我查过 catalog 了」 | 只有真的翻过某条记录，才会说查过 |
 
 ---
 
 ## 更新日志
 
-版本历史见 [CHANGELOG.md](CHANGELOG.md) —— 覆盖 1.0.0 到 1.5.0，每条都写清它修掉的到底是什么生成问题。
+版本历史见 [CHANGELOG.md](CHANGELOG.md) —— 覆盖 1.0.0 到 1.6.0，每条都写清它修掉的到底是什么生成问题。
 
 ## 文件说明
 
 | 文件 | 内容 |
 |---|---|
 | `SKILL.md` | 核心行为、工作流、强制输出格式 |
+| `references/action-direction.md` | 动作与角色互动规范：决定性瞬间、肢体力学、环境反应、多人交流 |
 | `references/style-language.md` | 画风选择矩阵、场景描述语料库、提示词骨架 |
 | `references/examples.md` | 完整中英对照示例 —— 角色入景、动作、纯背景、变体选择 |
 | `references/catalog-workflow.md` | 如何取用 Krea2 Character Catalog 而不过度声称可靠性 |
 | `references/source-notes.md` | 来源链接、来源可推得结论、核实边界 |
 | `docs/index.html` | 项目落地页（GitHub Pages 源，含中英文切换） |
-| `CHANGELOG.md` | 从 1.0.0 到 1.5.0 的版本历史 |
+| `CHANGELOG.md` | 从 1.0.0 到 1.6.0 的版本历史 |
 | `README.md` | 英文版 README（默认） |
 
 ## 内置画风锚点

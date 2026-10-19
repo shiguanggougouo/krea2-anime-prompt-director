@@ -2,6 +2,8 @@
 
 These are demonstrations of the skill's target quality and workflow, not fixed templates to reuse verbatim. Each example uses one coherent art direction and gives the environment concrete visual structure. Adapt all details to the user's current request.
 
+For action-led images and multi-character exchanges, also use the staging principles in `action-direction.md`. The examples below illustrate one frozen story beat with clear body mechanics, environmental cause and effect, or reciprocal character reactions.
+
 ## Example 1 — Canon character in a recognizable world
 
 **User idea:** 旗木卡卡西
@@ -114,3 +116,23 @@ A cinematic anime key illustration of Link from The Legend of Zelda: Breath of t
 
 **中文对照：**
 一幅具有电影感的动漫关键插画，描绘《塞尔达传说：旷野之息》中的林克：金发束在脑后，身穿蓝色英杰服与浅色内衫，佩戴皮质腰带和护腕，穿合身的旅途长裤，背着一面饱经磨损的旅行盾牌。侧面呈现他年轻的脸庞与专注的蓝色眼睛。他站在海拉鲁平原上方的青草坡地，一只手扶着盾牌，眺望平原另一端的海拉鲁城堡。被风吹弯的草丛与断裂的石碑构成前景；散落遗迹和一台倾倒的守护者残骸点缀中景；城堡的暗色轮廓则从薄雾笼罩的平原远端升起。一条窄窄的旧路绕过坡地，蜿蜒通往开阔平原，为视线提供明确的远行方向。云层下方透出的夕阳将草地染成金色，遗迹周围则聚起冷蓝阴影。几颗飘散的草籽、远处飞鸟与被风牵动的衣摆，让宁静景色带有旅程即将继续的故事感。采用清晰的手绘动漫轮廓、分明的剪影层次、带绘画质感的环境细节，以及克制的蓝、绿与琥珀色配色。遗迹应显得风化且半被草木吞没，城堡则被大气雾霭柔化而不完全遮住。整体开阔而静谧，带有冒险即将重新启程的气息；林克清晰地映衬在开放天空与远方城堡之间。
+
+## Example — Solo action shaped by the environment
+
+**User idea:** 林克在海拉鲁的暴雨山道上行动
+
+**POSITIVE:**
+A cinematic anime action illustration of Link from The Legend of Zelda: Breath of the Wild, with blond hair tied back, blue eyes, the blue Champion's Tunic over a pale undershirt, leather bracers, travel trousers, and a weathered shield strapped across his back. Freeze the instant he launches from a rain-slick stone stair to clear a collapsed section of the mountain path: his rear boot drives off the last intact step, his front knee tucks toward the gap, and his torso pitches forward along one clean diagonal while his left hand reaches for the broken handrail ahead. His right hand keeps the sword low and close to his body so it does not cross his face. His eyes lock on the narrow landing; his mouth is set with effort, not a smile for the viewer. The shield and loose edge of his tunic trail behind his leap, following the same wind direction. Water kicks from the takeoff stone and runs in thin streams down the broken stair; two pebbles tumble into the ravine beneath him. In the foreground, wet grass and a snapped wooden marker frame the jump. The middle ground shows the fractured path hugging a dark cliff, with a rope bridge disappearing into rain haze beyond the landing. Far below, a pale river threads between steep green slopes. A cold flash of lightning briefly separates Link's silhouette from the cliff, while a small amber lantern fixed to the next post marks his destination. Keep the route, gap, landing, and direction of travel immediately readable. Use crisp anime contours, controlled rain streaks, painted rock and water, and a restrained slate-blue, moss-green, and amber palette; the leap is the single focal beat, with no extra combat effects.
+
+**中文对照：**
+一幅具有电影感的动漫动作插画，描绘《塞尔达传说：旷野之息》中的林克：金发束在脑后，蓝色眼睛，身穿蓝色英杰服与浅色内衫，戴着皮质护腕，穿旅行长裤，饱经磨损的盾牌系在背上。画面定格在他从暴雨浸湿的石阶跃起、越过山路坍塌缺口的一刻：后脚靴底蹬离最后一块完好的台阶，前膝朝缺口收起，躯干沿着清晰的斜线向前倾，左手伸向前方断裂的扶手。右手把剑压低并贴近身体，避免剑身遮住脸。他的目光锁定狭窄的落脚处，咬紧牙关显出用力神情，而不是面向观众微笑。盾牌和上衣松开的衣角沿着同一股风向拖在跃身后方。起跳处的石面溅出水花，雨水沿着断裂的石阶流成细线，两颗碎石从他身下坠入山谷。前景以湿草和折断的木路标框住这次跳跃；中景里，破碎山道贴着深色峭壁延伸，绳桥在落脚点后方隐入雨雾；更低处，一条浅色河流穿过陡峭的青绿色山坡。冷白闪电短暂地将林克的剪影从崖壁中勾出，下一根路桩上的一盏琥珀色小灯则标示着他的目的地。必须让路径、缺口、落脚点和前进方向一眼清楚。采用利落的动漫轮廓、克制的雨线、带绘画质感的岩石与水面，以及统一的石板蓝、苔绿和琥珀色配色；跃越是画面唯一的焦点，不添加无关战斗特效。
+
+## Example — Two-character exchange with a clear action and reaction
+
+**User idea:** 孙悟空和比克在岩石训练场对练
+
+**POSITIVE:**
+A dynamic 2D Dragon Ball Z anime key illustration of an original sparring beat between Son Goku and Piccolo, not a recreation of a specific frame. Goku is in his ordinary Earth form, with sharply upswept black hair, dark focused eyes, an orange gi over a deep-blue undershirt, blue wristbands, and a blue sash. Piccolo's green face, long antennae, pointed ears, white turban, broad white cape, and purple gi remain unmistakable. Catch the exact instant Goku drives in with a low right-hand body punch; his rear leg pushes off the gravel, his forward knee bends, and his hips and shoulders turn behind the fist. Piccolo does not mirror the attack: he pivots just outside its line, catches Goku's wrist with one hand, and braces his other forearm against Goku's upper arm to redirect the momentum past his ribs. Goku's torso continues a fraction beyond his planted foot, his free hand opens to recover balance, and his eyes cut toward Piccolo's face in surprised recognition. Piccolo watches Goku rather than the viewer, calm and intent; the two eyelines meet above the precise point where their arms connect. Their contrasting silhouettes make the exchange easy to read: Goku's orange shoulder and black hair lean across the frame, while Piccolo's cape sweeps backward in the opposite arc. Gravel sprays only from Goku's push-off; the force wrinkles his sleeve and pulls his sash behind him, while Piccolo's planted stance barely shifts. Set the sparring on a broad, sun-baked rocky shelf with a split boulder near the contact line, sparse grass bent by their movement, and layered ochre ridges fading behind them. A low three-quarter camera angle keeps both faces, the wrist catch, and their foot placement visible. Use bold cel-shaded forms, expressive ink contours, and a disciplined orange, violet, green, and warm-stone palette. The central beat is the redirect and Goku's physical reaction, not a generic face-off pose.
+
+**中文对照：**
+一幅充满动势的《龙珠 Z》二维动漫关键插画，描绘孙悟空与比克进行对练的原创瞬间，并非复刻某一张具体画格。悟空保持普通地球形态：向上炸开的黑色尖发、专注的深色眼睛，身穿橙色武道服，内搭深蓝上衣，腕缠蓝色护腕，腰系蓝色布带。比克的绿色面容、细长触角、尖耳、白色头巾、宽大的白披风与紫色道服都清晰可辨。画面定格在悟空以右拳向前打向比克躯干的一刻：他的后腿蹬开碎石，前膝弯曲，髋部与肩膀跟着拳头一起旋转。比克没有照搬相同的攻击姿势，而是向拳路外侧转身，一只手扣住悟空的手腕，另一侧前臂抵住悟空上臂，将冲势引向自己肋侧之外。悟空的躯干因惯性略微越过支撑脚，空出的手张开以恢复平衡，眼神惊讶地转向比克的脸。比克并不看观众，而是镇定专注地注视悟空；两人的视线在手臂接触点上方交汇。两种鲜明剪影让攻防关系一眼可读：悟空橙色的肩膀与黑发斜压过画面，比克的披风则沿相反方向扬起。碎石只从悟空蹬地处飞散；冲势拉皱他的袖子，并将腰带牵向身后，而比克稳稳扎根的站姿几乎没有移动。场景设在宽阔、被太阳晒热的岩石平台上，接触线附近有一道裂开的巨石，稀疏草叶被两人的动作带弯，赭色山脊在身后逐层淡去。略低的四分之三侧机位同时呈现两人的面孔、扣住手腕的动作和脚下支撑位置。采用有力的赛璐珞色块、富有表现力的墨线，以及统一的橙、紫、绿与暖石色配色。视觉焦点是比克卸开拳路以及悟空随之失衡的身体反应，而不是泛泛的正面对峙姿势。
