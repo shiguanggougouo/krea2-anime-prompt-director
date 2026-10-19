@@ -5,6 +5,10 @@
 ![Format](https://img.shields.io/badge/format-Agent%20Skill-0EA5E9?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-22C55E?style=flat-square)
 
+[![English](https://img.shields.io/badge/lang-English-111827?style=flat-square)](README.md)
+[![简体中文](https://img.shields.io/badge/lang-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-7C5CFF?style=flat-square)](README.zh-CN.md)
+[![中文页面](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E9%A1%B5%E9%9D%A2-GitHub%20Pages-22C55E?style=flat-square)](https://shiguanggougouo.github.io/krea2-anime-prompt-director/)
+
 A reusable agent skill that turns a short Chinese or English idea into a **complete, Krea 2-ready anime prompt** — with a faithful Chinese translation alongside it.
 
 It does four things a generic "prompt enhancer" does not:
@@ -26,10 +30,10 @@ Drop the whole folder into the skills directory your agent reads. Keep `SKILL.md
 
 ```bash
 # Codex / repo-local
-git clone https://github.com/<your-account>/krea2-anime-prompt-director.git .agents/skills/krea2-anime-prompt-director
+git clone https://github.com/shiguanggougouo/krea2-anime-prompt-director.git .agents/skills/krea2-anime-prompt-director
 
 # WorkBuddy / Claude-style user-level
-git clone https://github.com/<your-account>/krea2-anime-prompt-director.git ~/.workbuddy/skills/krea2-anime-prompt-director
+git clone https://github.com/shiguanggougouo/krea2-anime-prompt-director.git ~/.workbuddy/skills/krea2-anime-prompt-director
 ```
 
 ### Use
@@ -96,6 +100,7 @@ Version history lives in [CHANGELOG.md](CHANGELOG.md) — 1.0.0 through 1.5.0, e
 | `references/source-notes.md` | Source URLs, source-derived findings, verification boundaries |
 | `docs/index.html` | Project landing page (GitHub Pages source, Chinese/English toggle) |
 | `CHANGELOG.md` | Version history from 1.0.0 to 1.5.0 |
+| `README.zh-CN.md` | Chinese edition of this README |
 
 ## Built-in style anchors
 
