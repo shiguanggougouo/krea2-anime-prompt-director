@@ -119,4 +119,4 @@ One dominant anchor per prompt, at most one bounded twist:
 
 ## License
 
-MIT.
+MIT — see [LICENSE](LICENSE).
