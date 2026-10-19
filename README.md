@@ -81,6 +81,10 @@ paperback...
 
 ---
 
+## Changelog
+
+Version history lives in [CHANGELOG.md](CHANGELOG.md) — 1.0.0 through 1.5.0, each entry describing the generation problem it fixed.
+
 ## Files
 
 | File | What it holds |
@@ -90,7 +94,8 @@ paperback...
 | `references/examples.md` | Full EN/CN examples — character scenes, action, environment-only, variant selection |
 | `references/catalog-workflow.md` | How to use Krea2 Character Catalog entries without overstating reliability |
 | `references/source-notes.md` | Source URLs, source-derived findings, verification boundaries |
-| `docs/index.html` | Project landing page (GitHub Pages source) |
+| `docs/index.html` | Project landing page (GitHub Pages source, Chinese/English toggle) |
+| `CHANGELOG.md` | Version history from 1.0.0 to 1.5.0 |
 
 ## Built-in style anchors
 
