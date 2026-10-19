@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time AI · Krea 2 Anime Prompt Director</title>
+<meta name="description" content="把一句话变成完整的 Krea 2 动漫提示词：可辨识的角色身份、可绘制的场景重建、自动补全的经典世界观场景，并附忠实中文对照。">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f7f7fb;
+    --bg-soft2:#fbfbfe;
+    --text:#16161d;
+    --muted:#5c5c6e;
+    --muted2:#82829a;
+    --border:#e7e7f0;
+    --accent:#6d5efc;
+    --accent-2:#d946ef;
+    --accent-soft:#f1effe;
+    --code-bg:#1b1b26;
+    --code-text:#e8e8f4;
+    --radius:16px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:76px 0;border-top:1px solid var(--border);}
+  section.plain{border-top:none;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;color:var(--text);}
+  .brand:hover{text-decoration:none;}
+  .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:none;}
+  .nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px;color:var(--muted);}
+  .nav-links a{color:var(--muted);}
+  .nav-links a:hover{color:var(--text);text-decoration:none;}
+  .btn-gh{
+    margin-left:8px;padding:7px 14px;border-radius:999px;
+    border:1px solid var(--border);background:var(--text);color:#fff!important;
+    font-size:13px;font-weight:600;white-space:nowrap;
+  }
+  .btn-gh:hover{background:#000;text-decoration:none;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 64px;text-align:center;border-top:none;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 14px;border-radius:999px;
+    background:var(--accent-soft);color:var(--accent);
+    font-size:13px;font-weight:600;border:1px solid #e6e2ff;
+  }
+  h1{
+    font-size:clamp(32px,5.2vw,54px);line-height:1.15;margin:22px 0 0;
+    letter-spacing:-.03em;font-weight:800;
+  }
+  h1 .grad{
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .sub{max-width:760px;margin:20px auto 0;font-size:18px;color:var(--muted);}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+  .btn{
+    display:inline-block;padding:12px 24px;border-radius:12px;font-weight:600;font-size:15px;
+    border:1px solid transparent;transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .btn:hover{text-decoration:none;transform:translateY(-1px);}
+  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 8px 24px -10px rgba(109,94,252,.8);}
+  .btn-ghost{background:#fff;color:var(--text);border-color:var(--border);}
+
+  .terminal{
+    max-width:820px;margin:44px auto 0;text-align:left;
+    background:var(--code-bg);border-radius:var(--radius);
+    overflow:hidden;box-shadow:0 24px 60px -28px rgba(20,20,50,.5);
+  }
+  .terminal-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#14141d;border-bottom:1px solid #2a2a38;}
+  .terminal-bar i{width:11px;height:11px;border-radius:50%;display:block;}
+  .terminal-bar span{margin-left:10px;font-size:12px;color:#8a8aa3;font-family:ui-monospace,Menlo,Consolas,monospace;}
+  .terminal pre{margin:0;padding:20px;overflow-x:auto;font-size:13.5px;line-height:1.65;color:var(--code-text);font-family:ui-monospace,Menlo,Consolas,monospace;}
+  .c-dim{color:#8a8aa3;}
+  .c-key{color:#c4b5fd;}
+  .c-str{color:#a5f3c4;}
+  .c-cmt{color:#7c7c93;}
+
+  /* ---------- section head ---------- */
+  .head{max-width:720px;margin-bottom:40px;}
+  .kicker{font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);}
+  h2{font-size:clamp(24px,3.4vw,34px);line-height:1.25;margin:10px 0 0;letter-spacing:-.02em;font-weight:800;}
+  .lede{margin:14px 0 0;font-size:17px;color:var(--muted);}
+
+  /* ---------- compare ---------- */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .cmp{border:1px solid var(--border);border-radius:var(--radius);padding:24px;background:var(--bg-soft2);}
+  .cmp.bad{background:#fdf7f7;border-color:#f3e0e0;}
+  .cmp.good{background:#f5fdf8;border-color:#dcf0e3;}
+  .cmp h4{margin:0 0 14px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;}
+  .cmp.bad h4{color:#c0453f;}
+  .cmp.good h4{color:#1f8a55;}
+  .cmp ul{margin:0;padding-left:18px;font-size:15px;color:var(--muted);}
+  .cmp li{margin-bottom:8px;}
+  .cmp li::marker{color:var(--muted2);}
+
+  /* ---------- features ---------- */
+  .grid{display:grid;gap:18px;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .card{
+    border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;background:#fff;transition:border-color .18s ease,box-shadow .18s ease;
+  }
+  .card:hover{border-color:#d6d2fb;box-shadow:0 12px 32px -20px rgba(40,30,120,.35);}
+  .ico{
+    width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    background:var(--accent-soft);font-size:19px;margin-bottom:14px;
+  }
+  .card h3{margin:0 0 8px;font-size:17px;letter-spacing:-.01em;}
+  .card p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  /* ---------- examples ---------- */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .tab{
+    padding:9px 16px;border-radius:999px;border:1px solid var(--border);
+    background:#fff;font-size:14px;color:var(--muted);cursor:pointer;font-family:inherit;
+    transition:all .15s ease;
+  }
+  .tab:hover{border-color:#cfc9fb;color:var(--text);}
+  .tab.on{background:var(--text);color:#fff;border-color:var(--text);}
+  .langbar{display:flex;gap:6px;margin-bottom:14px;}
+  .lang{
+    padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:#fff;
+    font-size:13px;color:var(--muted);cursor:pointer;font-family:inherit;
+  }
+  .lang.on{background:var(--accent-soft);color:var(--accent);border-color:#ddd7fb;font-weight:600;}
+  .panel{display:none;}
+  .panel.on{display:block;}
+  .ex{
+    border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#fff;
+  }
+  .ex-head{
+    padding:16px 22px;background:var(--bg-soft);border-bottom:1px solid var(--border);
+    font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  }
+  .chip{
+    padding:3px 10px;border-radius:999px;background:#fff;border:1px solid var(--border);
+    font-size:12px;font-weight:600;color:var(--text);
+  }
+  .ex-body{padding:22px 24px;font-size:14.5px;line-height:1.85;color:#2c2c3c;}
+  .ex-body.en{font-family:ui-monospace,Menlo,Consolas,"Segoe UI",monospace;font-size:13.5px;}
+
+  /* ---------- steps ---------- */
+  ol.steps{list-style:none;counter-reset:s;margin:0;padding:0;}
+  ol.steps li{
+    counter-increment:s;position:relative;padding:0 0 26px 58px;border-left:1px solid var(--border);
+    margin-left:19px;
+  }
+  ol.steps li:last-child{border-left-color:transparent;padding-bottom:0;}
+  ol.steps li::before{
+    content:counter(s);
+    position:absolute;left:-19px;top:0;
+    width:38px;height:38px;border-radius:50%;
+    background:#fff;border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;color:var(--accent);
+  }
+  ol.steps h3{margin:6px 0 6px;font-size:17px;letter-spacing:-.01em;}
+  ol.steps p{margin:0;font-size:15px;color:var(--muted);}
+
+  /* ---------- styles ---------- */
+  .pills{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    border:1px solid var(--border);border-radius:12px;padding:14px 18px;background:#fff;
+  }
+  .pill b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .pill span{font-size:13px;color:var(--muted);}
+
+  /* ---------- install ---------- */
+  .codebox{
+    position:relative;background:var(--code-bg);border-radius:var(--radius);
+    padding:18px 20px;margin-bottom:14px;
+  }
+  .codebox pre{margin:0;overflow-x:auto;font-size:13.5px;line-height:1.7;color:var(--code-text);font-family:ui-monospace,Menlo,Consolas,monospace;}
+  .copy{
+    position:absolute;top:12px;right:12px;
+    padding:5px 12px;border-radius:8px;border:1px solid #3a3a4d;background:#262633;
+    color:#b9b9d0;font-size:12px;cursor:pointer;font-family:inherit;
+  }
+  .copy:hover{background:#32323f;color:#fff;}
+
+  /* ---------- tree ---------- */
+  .tree{
+    background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px 24px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;line-height:2;
+    overflow-x:auto;
+  }
+  .tree .d{color:var(--accent);font-weight:600;}
+  .tree .n{color:var(--muted2);}
+
+  /* ---------- notes ---------- */
+  .note{
+    border-left:3px solid var(--accent);background:var(--bg-soft);
+    padding:16px 20px;border-radius:0 12px 12px 0;font-size:15px;color:var(--muted);
+  }
+  .note b{color:var(--text);}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-soft);}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted);}
+  .srcs{display:flex;gap:18px;flex-wrap:wrap;}
+  .srcs a{color:var(--muted);font-size:13.5px;}
+  .srcs a:hover{color:var(--accent);}
+
+  @media (max-width:860px){
+    .g3{grid-template-columns:1fr;}
+    .g2{grid-template-columns:1fr;}
+    .compare{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top"><span class="dot"></span>Krea 2 Anime Prompt Director</a>
+    <div class="nav-links">
+      <a href="#why">为什么</a>
+      <a href="#features">能力</a>
+      <a href="#examples">示例</a>
+      <a href="#how">工作流</a>
+      <a href="#install">安装</a>
+    </div>
+    <a class="btn-gh" id="ghBtn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Time AI · Agent Skill · v1.5.0</span>
+    <h1>一句话，变成一条<br><span class="grad">可直接出图的 Krea 2 提示词</span></h1>
+    <p class="sub">
+      不是泛泛的"提示词润色器"。它把角色身份落到可见证据上，把地名重建成能画的场景，
+      在你没给环境时自动补一个该角色原作里的经典舞台，并附一段忠实的中文对照。
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#install">安装 Skill</a>
+      <a class="btn btn-ghost" href="#examples">看看效果</a>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+        <span>输入 → 输出</span>
+      </div>
+<pre><span class="c-cmt"># 你只说了一句</span>
+<span class="c-key">旗木卡卡西</span>
+
+<span class="c-cmt"># 它给出</span>
+<span class="c-str">POSITIVE:</span>
+A cinematic 2D shonen-anime key illustration of Hatake Kakashi from
+Naruto, identifiable by his unruly silver hair swept into sharp spikes,
+a Leaf forehead protector slanted over his left eye, one relaxed visible
+eye, the black mask covering his nose and mouth, and the high collar and
+segmented pockets of his green flak jacket over a dark undersuit. He sits
+sideways on the curved ridge of a tiled rooftop in the Hidden Leaf
+Village, casually reading a small orange-covered paperback...
+
+<span class="c-str">中文对照：</span>
+一幅具有电影感的二维少年热血动漫关键插画，描绘《火影忍者》中的旗木卡卡西。
+他蓬松的银发向上分成清晰尖束，木叶护额斜压在左眼上方，一只放松却警觉的
+眼睛露在外面，黑色面罩遮住鼻子和嘴；深色紧身内搭外是带高领与分区口袋的
+绿色上忍马甲。他侧坐在木叶村一处弧形瓦顶的屋脊上……</pre>
+    </div>
+  </div>
+</header>
+
+<section id="why" class="plain">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Why</div>
+      <h2>通用提示词助手，和这个 skill 的差别</h2>
+      <p class="lede">Krea 2 要的是连贯的自然语言描述，不是 Danbooru 标签串。差别主要在这五处。</p>
+    </div>
+    <div class="compare">
+      <div class="cmp bad">
+        <h4>通用写法</h4>
+        <ul>
+          <li>前置 <code>masterpiece, best quality, 8k</code> 之类质量宏</li>
+          <li>背景只写"在房间里""在户外"</li>
+          <li>写"天下第一武道会"，指望模型自己知道长什么样</li>
+          <li>同一个角色永远套同一套默认服装</li>
+          <li>反复出图都是同一个姿势同一个场景</li>
+        </ul>
+      </div>
+      <div class="cmp good">
+        <h4>本 skill</h4>
+        <ul>
+          <li>连贯英文散文，标签只在你要的时候才给</li>
+          <li>选一个原作经典场景，描述建筑、材质、尺度、光照、天气</li>
+          <li>把专有名词翻译成可绘制的物理布局与可辨识标识</li>
+          <li>先判定"故事时刻版本"：篇章、地点、身份、变身状态</li>
+          <li>同一角色再次出现时，场景和动作都换</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Capabilities</div>
+      <h2>六件它特别较真的事</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="ico">🎭</div>
+        <h3>身份靠可见证据</h3>
+        <p>发型与发色、眉眼与标记、体型轮廓、招牌服装的层次/颜色/材质、配件道具。按取景挑选 4–7 个最有辨识度的线索，而不是"动漫忍者装"。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🏛️</div>
+        <h3>场景要重建，不要命名</h3>
+        <p>"天下第一武道会"→ 浅色方石高台擂台、脚下红色界线、环绕的阶梯观众席、红漆立柱、赛事旗帜、瓦顶入口楼阁。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🌄</div>
+        <h3>环境没给就自动补</h3>
+        <p>只给角色名、或只给动作/风格/情绪而没给地点时，从该角色的动漫、漫画或游戏原作里挑一个有戏的经典舞台，再把实景写出来。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔁</div>
+        <h3>重复请求自动区分</h3>
+        <p>对话内记录每个角色用过的场景与动作。再次请求时换一个原作场景<strong>和</strong>一个动作，不重复同一套地标排布或招牌桥段。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🎨</div>
+        <h3>单一主导画风</h3>
+        <p>吉卜力 / 新海诚 / 京阿尼 / Madhouse 都市黑色 / 90 年代机战赛璐璐 / 少女 / 青年 / 经典热血战斗 —— 一个锚点，最多一个有界变体。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🧾</div>
+        <h3>检索诚实</h3>
+        <p>没真正查到 Krea2 Character Catalog 条目就绝不说"我查过目录"。条目只当证据，不当设定，更不等于"该角色在训练数据里"。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="examples">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Examples</div>
+      <h2>真实输出</h2>
+      <p class="lede">下面是 skill 实际会产出的完整内容。英文与中文表达同一套视觉决策，不增不减。</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab on" data-ex="0">旗木卡卡西</button>
+      <button class="tab" data-ex="1">美少女战士 · 经典月夜</button>
+      <button class="tab" data-ex="2">京阿尼风 · 雨后教室</button>
+      <button class="tab" data-ex="3">孙悟空 · 龟派气功</button>
+    </div>
+
+    <div class="panel on" data-ex="0">
+      <div class="ex-head"><span class="chip">你输入</span> 旗木卡卡西</div>
+      <div class="langbar"><button class="lang on" data-lang="en">English</button><button class="lang" data-lang="cn">中文对照</button></div>
+      <div class="ex"><div class="ex-body en" data-lang="en">A cinematic 2D shonen-anime key illustration of Hatake Kakashi from Naruto, identifiable by his unruly silver hair swept into sharp spikes, a Leaf forehead protector slanted over his left eye, one relaxed visible eye, the black mask covering his nose and mouth, and the high collar and segmented pockets of his green flak jacket over a dark undersuit. He sits sideways on the curved ridge of a tiled rooftop in the Hidden Leaf Village, casually reading a small orange-covered paperback, his shoulders loose but his visible eye still observant. Keep the forehead protector, eye, and mask unobstructed. One gloved hand steadies the book against the breeze while his other rests near his raised knee; the loose edge of his vest and a few silver hair tips lift in the same wind. Soft leaves frame the near corner of the image, slightly out of focus. Below him, timber balconies, narrow shopfronts, hanging signs, ceramic roof tiles, and a few warm paper lanterns form layered streets that recede toward the Hokage Monument carved into the distant mountain. A painted awning and rain-dark wooden stairway lead the eye down toward the village street, while the rooftops leave a clear gap around the monument. Recent rain darkens the tiles and leaves tiny amber reflections along their edges; late-afternoon sunlight slips through broken clouds and catches the tips of his hair, while cool green-blue shadows hold the village together. Let the focus fall gently from Kakashi's sharply drawn eye and gloved hand to the receding street, keeping the distant monument readable through the roofline gap. Fine ink contours define the hair spikes, mask folds, vest pockets, and book edge; softer painted gradients reserve the atmosphere for the sky and mountain. Clean, confident cel-painted forms, carefully controlled linework, and a restrained green, slate, and warm-amber palette create a quiet moment of watchfulness rather than a posed character sheet.</div>
+      <div class="ex-body" data-lang="cn" style="display:none">一幅具有电影感的二维少年热血动漫关键插画，描绘《火影忍者》中的旗木卡卡西。他蓬松的银发向上分成清晰尖束，木叶护额斜压在左眼上方，一只放松却警觉的眼睛露在外面，黑色面罩遮住鼻子和嘴；深色紧身内搭外是带高领与分区口袋的绿色上忍马甲。他侧坐在木叶村一处弧形瓦顶的屋脊上，随意地读着一本橙色封面的平装小书。护额、露出的眼睛和面罩都清晰可见，不被遮挡。一只戴手套的手按住被风掀动的书页，另一只手搭在屈起的膝头；马甲下摆与几缕银发朝同一方向轻扬。虚化的近景树叶从画面一角伸入。屋顶下方，木质阳台、狭窄店面、悬挂招牌、陶制瓦片和几盏温暖的纸灯笼层层排列，街道逐渐延伸至远方山体上雕刻的火影岩。彩绘布篷和被雨淋深色的木楼梯将视线引向村道，层叠屋顶之间则为远处雕像留出清晰空隙。雨水打湿瓦片，在边缘留下细小琥珀色反光；午后阳光穿过云隙，照亮他的发梢，冷绿与蓝灰色阴影则统一了整座村庄。焦点从卡卡西清晰的眼睛与戴手套的手逐渐过渡到向远处收束的街巷，同时让火影岩仍能透过屋顶间隙辨认出来。细密墨线刻画发束、面罩褶皱、马甲口袋和书本边缘，柔和绘画渐变则留给天空与山体，强化近实远虚的层次。清晰沉稳的赛璐珞色块、克制准确的线条，以及绿色、石板灰与暖琥珀色的协调配色，营造出安静警觉的瞬间，而非单纯的人物设定图。</div></div>
+    </div>
+
+    <div class="panel" data-ex="1">
+      <div class="ex-head"><span class="chip">你输入</span> 美少女战士，经典月夜场景</div>
+      <div class="langbar"><button class="lang on" data-lang="en">English</button><button class="lang" data-lang="cn">中文对照</button></div>
+      <div class="ex"><div class="ex-body en" data-lang="en">A luminous 2D shoujo-anime key visual of Sailor Moon standing on the edge of a Tokyo rooftop beneath an immense full moon. Her unmistakable blonde hair is gathered into two round odango buns with long twin tails streaming behind her; her blue eyes and youthful round face remain visible as she looks toward the horizon. The white sailor bodice with its blue collar, large red chest bow, blue pleated skirt, long white gloves, red knee-high boots, and gold crescent tiara form a clean, readable silhouette. One gloved hand is raised near her chest bow while the other balances at her side, giving her a poised, ready stance; moonlight picks out the glove seams and the folds of her skirt. In the foreground, a few rooftop railings and windblown cherry-blossom petals create delicate framing without covering her face or tiara. Beyond her, layered Tokyo buildings descend toward a distant river; apartment windows glow in small grids of honey-yellow light, while rooftop antennas and water tanks break the skyline into fine shapes. A rooftop access door and low utility housings sit in shadow near the frame edge, grounding the moonlit scene in a real city roof. Wisps of high cloud cross the moon, making a pale halo that outlines her twin tails, and restrained pink-white starlight glimmers around her boots. A ribbon of cloud leaves the moon's brightest disc unobstructed, while faint reflections from the city add a thin rose tint beneath the rooftop edge. Keep the magical accents sparse and connected to her presence, so the night sky remains open and the costume silhouette stays crisp against it. Use delicate contour lines, elegant pose design, soft luminous gradients, and a carefully limited palette of midnight blue, pearl white, rose pink, and warm window gold. The mood is romantic and resolute, with generous sky space and a clear separation between the heroine and the city.</div>
+      <div class="ex-body" data-lang="cn" style="display:none">一幅明亮通透的二维少女动漫关键视觉图：美少女战士伫立在东京一座屋顶的边缘，身后是一轮巨大满月。她金色长发分成两枚圆润团子髻与向后飘扬的双马尾；她望向远方，蓝色眼睛与圆润年轻的脸庞清晰可见。白色水手服上衣带蓝色水手领，胸前系着醒目的红色大蝴蝶结，下身是蓝色百褶裙，搭配长款白手套、红色及膝靴和金色新月额饰，整体轮廓一眼可辨。一只戴手套的手抬至胸前蝴蝶结附近，另一只手自然侧展，形成优雅而随时准备行动的姿态；月光勾出手套缝线与裙褶。前景中，少量屋顶栏杆与被风吹起的樱花花瓣构成轻盈的画框，不遮住她的脸和额饰。她身后是层层下降的东京建筑群，远处河流隐约可见；公寓窗户点亮成细小的蜂蜜金色光格，天线与屋顶水箱切分出细致的天际线。画面边缘的屋顶出入口和低矮设备箱藏在阴影中，让月夜场景仍带有真实城市屋顶的空间感。高空薄云掠过月面，形成淡淡光晕，勾勒她的双马尾；靴边有克制的粉白色星光。一缕云恰好绕开满月最明亮的圆面，城市反光则在屋顶边缘下方留下一线微弱玫瑰色。魔法光点要稀疏并与她的存在相关，让夜空保持开阔，也让服装轮廓清晰映衬在月光之中。使用纤细轮廓线、优雅姿态、柔和明亮的渐变，以及午夜蓝、珍珠白、玫瑰粉与窗灯金组成的有限配色。整体浪漫而坚定，天空留白充足，人物与城市层次分明。</div></div>
+    </div>
+
+    <div class="panel" data-ex="2">
+      <div class="ex-head"><span class="chip">你输入</span> 京都动画风格，雨后的日本高中教室，不要人物</div>
+      <div class="langbar"><button class="lang on" data-lang="en">English</button><button class="lang" data-lang="cn">中文对照</button></div>
+      <div class="ex"><div class="ex-body en" data-lang="en">Anime background painting of an empty Japanese high-school classroom just after a spring shower, in a Kyoto Animation aesthetic. The camera looks diagonally from the back corner toward tall windows on the left, where rain beads cling to the glass and a pale curtain lifts slightly in the breeze. In the foreground, the scratched corner of a wooden desk, a half-open notebook, and a blue mechanical pencil catch small highlights. Across the middle ground, orderly desks and chairs form clean receding rows; a chalkboard holds faint erased equations, and a small eraser tray leaves a dusting of white chalk beneath it. Beyond the windows, wet cherry branches, the school athletic field, and the blurred outline of a neighboring building layer into a cool, rain-washed distance. Soft late-afternoon sunlight breaks through the clouds and lays a warm diagonal across the polished floor, contrasting gently with blue-gray window shadows and tiny reflections in shallow puddles by the sill. Use precise delicate linework, natural object-level detail, calm cel-painted colors, and a bright but slightly melancholic slice-of-life mood. No characters, no people, no figures.
+Add a wall clock above the chalkboard, a neatly pinned class timetable, and a few colored magnets on the window frame to make the room feel specific without suggesting anyone is present. The nearest desk is larger and sharper than the rows behind it; chair legs repeat as measured verticals toward the far wall. Tiny droplets trace the window frame and gather at the sill, where a folded cleaning cloth rests beside a watering can. Keep the warm sun stripe narrow and believable, with reflected light softly catching desk edges while the corners remain cool. Preserve generous open floor and quiet air, letting the rain-washed view and the geometry of the room carry the mood.</div>
+      <div class="ex-body" data-lang="cn" style="display:none">一幅描绘春日阵雨刚停时日本高中教室的动漫背景绘画，采用京都动画式美术气质。镜头从教室后方的角落斜向左侧高窗望去，玻璃上还挂着细小雨珠，浅色窗帘被微风轻轻掀起。前景中，带有刮痕的木桌一角、半开的笔记本和一支蓝色自动铅笔捕捉到细碎的高光。中景里，课桌与椅子整齐排列成向远处收束的行列；黑板上残留着刚被擦淡的公式，粉笔槽下方落着一层白色粉笔屑。黑板上方挂着圆形挂钟，墙面钉着整齐的课程表，窗框上几枚彩色磁贴让空间更有生活感，却不暗示有人入镜。最近的一张课桌清晰而突出，后方桌椅逐渐缩小，椅腿形成规律的竖向节奏。窗外，湿润的樱花枝条、学校操场以及邻近建筑的模糊轮廓，在被雨水洗净的冷色远景中层层展开。细小水珠沿窗框滑落，在窗台边聚成一线，旁边放着折叠的抹布和浇花壶。傍晚前的柔和阳光穿过云层，只在光洁地板上铺出一条克制的暖色斜光，桌沿泛起微亮，墙角仍留在蓝灰阴影里。画面采用精细纤柔的线条、落实到具体物件的生活化细节、平静的赛璐珞色彩，营造明亮却略带怅惘的日常系氛围。地面留有充足空处，雨后窗景与教室几何结构共同形成安静的视觉节奏。画面中没有角色、没有人、没有人物形体。</div></div>
+    </div>
+
+    <div class="panel" data-ex="3">
+      <div class="ex-head"><span class="chip">你输入</span> 七龙珠孙悟空，龟派气功</div>
+      <div class="langbar"><button class="lang on" data-lang="en">English</button><button class="lang" data-lang="cn">中文对照</button></div>
+      <div class="ex"><div class="ex-body en" data-lang="en">A dynamic 2D battle-shonen key visual of Son Goku in his ordinary Earth tournament appearance: sharply upswept black hair, strong brows, focused dark eyes, an orange gi with a small turtle-school emblem, deep-blue undershirt, blue wristbands, and blue sash. He plants his compact, athletic frame in a low, twisted stance on the pale stone floor of the World Martial Arts Tournament's raised square fighting ring, gathering a Kamehameha. A red boundary line runs around the ring beneath his feet; his knees brace against cracked tiles as his torso turns sideways and his cupped hands draw together beside his waist around a dense blue-white energy sphere. The sphere is the brightest point in the image; narrow rays leak between his fingers and cast cool highlights across his wrists, cheek, and the folds of his gi. Blue-white ki streams back from his hands, pushing dust and loose grit toward the ring's edge. Beyond the ring, crowded stepped stands curve around the arena; red-painted posts, tournament banners, and a tiled-roof entrance pavilion identify the venue, while distant spectators dissolve into the wind-driven cloud light. Use a classic 1990s battle-shonen cel-animation look, bold contour lines, hard-edged shadow blocks, and a disciplined orange, cobalt, and electric-blue palette. Keep his face, black-haired silhouette, emblem, hands, and energy sphere readable so both the character and technique register instantly.
+The low camera angle places the square ring across the lower half of the frame, with the audience rising behind him in layered tiers rather than blending into a generic stadium wall. Stone steps at one corner reveal the platform's height; a small judges' table and a fluttering event pennant sit beyond the red boundary, scaled modestly so they do not compete with Goku. His planted foot, bent knees, twisted waist, and locked hands form a clear line of force toward the unseen opponent. Let the charge lift the edge of his gi and send grit skimming across the tiles, while the crowd leans forward as a soft, lively band of faces and color. Maintain crisp separation between character, ring, and stands, with the energy sphere as the sole brightest focal point.</div>
+      <div class="ex-body" data-lang="cn" style="display:none">一幅充满动势的二维热血战斗动漫关键视觉图：这是地球武道会场景中的普通形态孙悟空，以向上炸开的黑色尖发、浓眉与专注的深色眼睛为特征，身穿印有龟仙流小徽记的橙色武道服，内搭深蓝上衣，腕缠蓝色护腕，腰系蓝色布带。他紧凑结实的身形压低重心，站在天下第一武道会高起的方形浅色石质擂台上凝聚龟派气功；擂台边缘画着醒目的红色界线，脚下石砖已被震裂。他扭转躯干，双手在腰侧紧紧合拢，掌间包裹着一颗密度极高的蓝白色能量球。能量球是画面最明亮的焦点；细窄光束从指缝间穿出，在手腕、脸颊和武道服褶皱上投下冷色高光。蓝白色气流从双手向后翻涌，把尘土和碎石推向擂台边缘。擂台外侧，层层观众席沿着场地环绕；红色立柱、比赛旗帜和带瓦顶的入口楼阁标明这是正式赛事场馆，远处观众融入被风吹动的云层光线中。低机位让方形擂台占据画面下半部，观众席在悟空身后逐层升高，清晰呈现不同空间层次，而不是一整面模糊的体育馆墙。擂台一角的石阶显示平台高度，红色界线外的小型裁判席与飘动的赛事旗只作尺度参照，不争夺焦点。他踩稳地面、屈膝、扭腰、合掌，身体形成一条指向画外对手的蓄力线；气功掀起衣摆，碎屑沿石砖滑向边缘，观众则化为前倾注视的鲜活色带。采用经典九十年代热血少年动画的赛璐珞风格、鲜明有力的轮廓线、硬边阴影色块，以及克制统一的橙色、钴蓝与电光蓝配色。保持人物、擂台、观众席之间的清晰分层，并让能量球成为唯一最明亮的焦点；他的面部、黑发轮廓、徽记、双手与招式都必须一眼可辨。</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Workflow</div>
+      <h2>它内部怎么走</h2>
+      <p class="lede">除真正的必要歧义外，它默认自行推断并直接出文，不反问。</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>分类意图</h3>
+        <p>角色＋原作世界（未指定环境）／角色＋指定环境／动作战斗／纯背景／原创角色／风格探索。保留你给的任何画幅、机位、动作、服装、时代或情绪。</p>
+      </li>
+      <li>
+        <h3>解析"故事时刻版本"</h3>
+        <p>先决定你要的是哪个篇章、地点、身份、变身状态或时期的形态 —— 头发、服装、装备、年龄、伤势、状态都随之改变，不把默认设计贴到每个场景上。</p>
+      </li>
+      <li>
+        <h3>自动补全未指定的环境</h3>
+        <p>没给地点就不留白：从原作挑一个有叙事意义、视觉上记得住的舞台，用至少三个场景专属标识 + 前景/中景/远景 + 统一的时间天气光照氛围把它写实。</p>
+      </li>
+      <li>
+        <h3>把专有名词翻译成可绘制描述</h3>
+        <p>物理类型与布局 → 可见标识 → 空间摆位 → 材质尺度氛围 → 与这一幕剧情的关联。专有名只作为可选锚点，不代替画面描述。</p>
+      </li>
+      <li>
+        <h3>选定一个视觉语言</h3>
+        <p>参考内置风格矩阵选主导锚点；画风只影响线条、配色、光照与质感，不覆盖角色的招牌设计。</p>
+      </li>
+      <li>
+        <h3>按稳定顺序搭画面</h3>
+        <p>媒介与意图 → 焦点主体与身份 → 具体地点与剧情节点 → 前景 → 中景 → 背景纵深 → 光照与配色 → 渲染与情绪基调。</p>
+      </li>
+      <li>
+        <h3>套用场景密度标准</h3>
+        <p>两到三个空间层次、三个以上具体场景标识、一套自洽光照、一个受控配色、一到两个大气运动、一个构图线索。</p>
+      </li>
+      <li>
+        <h3>输出 POSITIVE + 中文对照</h3>
+        <p>角色入景约 150–350 词，纯背景约 120–300 词。去掉质量宏与过时的 Anima 语法；中文忠实对应英文的每一项视觉决策。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="styles">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Style anchors</div>
+      <h2>内置画风锚点</h2>
+      <p class="lede">一个主导锚点，最多一个有界变体。名字只是视觉锚，不是魔法关键词 —— 必须配上具体的配色、线条、光、介质与情绪。</p>
+    </div>
+    <div class="grid g2">
+      <div class="pill"><b>Studio Ghibli aesthetic</b><span>手绘水彩感、克制的自然配色、风化的乡间木石、层叠绿意、柔和正午光</span></div>
+      <div class="pill"><b>Makoto Shinkai / CoMix Wave Films</b><span>高饱和天空、细密云缘、阳光耀斑、蓝调时刻渐变、电线与电线杆作前景</span></div>
+      <div class="pill"><b>Kyoto Animation</b><span>明亮而微带怅惘、温暖自然窗光、精细纤柔线条、有生活痕迹的室内物件</span></div>
+      <div class="pill"><b>Madhouse / urban-noir</b><span>冷蓝绿配色、硬边赛璐璐阴影、湿沥青、都市密度、钠灯黄点缀</span></div>
+      <div class="pill"><b>1990s Sunrise / classic OVA mecha</b><span>硬边赛璐璐、粗犷线条、手绘工业背景、强机械轮廓、厚重阴影</span></div>
+      <div class="pill"><b>少女 / 青年 / 经典热血战斗</b><span>纤细轮廓与花卉光点／克制的都市夜色与成人张力／清晰动作剪影与速度线</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Install</div>
+      <h2>一分钟装上</h2>
+      <p class="lede">整个文件夹放进你的 agent 读取的 skills 目录即可。<code>SKILL.md</code> 与 <code>references/</code> 必须在一起。</p>
+    </div>
+    <div class="codebox">
+      <button class="copy" data-target="c1">复制</button>
+      <pre id="c1">git clone https://github.com/&lt;your-account&gt;/krea2-anime-prompt-director.git .agents/skills/krea2-anime-prompt-director</pre>
+    </div>
+    <div class="codebox">
+      <button class="copy" data-target="c2">复制</button>
+      <pre id="c2">git clone https://github.com/&lt;your-account&gt;/krea2-anime-prompt-director.git ~/.workbuddy/skills/krea2-anime-prompt-director</pre>
+    </div>
+    <p style="font-size:14px;color:var(--muted2);margin-top:2px;">第一条适用于 Codex 的仓库内 <code>.agents/skills/</code>；第二条适用于 WorkBuddy 等用户级 skills 目录。</p>
+
+    <h3 style="margin:38px 0 14px;font-size:18px;">目录结构</h3>
+    <div class="tree">
+<span class="d">krea2-anime-prompt-director/</span>
+├── <span class="d">SKILL.md</span>                        <span class="n">核心行为 + 工作流 + 输出格式</span>
+├── <span class="d">README.md</span>
+├── <span class="d">docs/</span>
+│   └── <span class="d">index.html</span>                <span class="n">本页（GitHub Pages 源）</span>
+└── <span class="d">references/</span>
+    ├── <span class="d">style-language.md</span>        <span class="n">风格矩阵 / 场景语言库 / 提示词骨架</span>
+    ├── <span class="d">examples.md</span>              <span class="n">完整中英示例（角色、动作、纯场景、版本选择）</span>
+    ├── <span class="d">catalog-workflow.md</span>      <span class="n">Krea2 Character Catalog 的证据化处理流程</span>
+    └── <span class="d">source-notes.md</span>          <span class="n">来源链接、结论与验证边界</span>
+    </div>
+
+    <h3 style="margin:38px 0 14px;font-size:18px;">怎么用</h3>
+    <div class="codebox">
+      <button class="copy" data-target="c3">复制</button>
+      <pre id="c3">用 krea2-anime-prompt-director 扩写：旗木卡卡西</pre>
+    </div>
+  </div>
+</section>
+
+<section id="limits">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Honest limits</div>
+      <h2>它不做什么</h2>
+    </div>
+    <div class="grid g2">
+      <div class="note"><b>不自带 Krea2 Character Catalog 数据集。</b>只有真的存在可访问条目、导出文件或你提供的文件时才使用；查不到就继续用可靠知识，不伪造引用。</div>
+      <div class="note"><b>目录条目是临时性的。</b>匹配结果只是有用证据，不等于设定，更不等于"该角色在 Krea 2 训练数据里"。</div>
+      <div class="note"><b>不保证系列一致性。</b>纯文本提示词无法锁死角色连续性；做系列请用 Krea 2 的风格参考，或 20–40 张参考图组成的 mood board。</div>
+      <div class="note"><b>默认不输出负面提示词。</b>除非你明确要求单独给一份 negative prompt。</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>Time AI · Krea 2 Anime Prompt Director · v1.5.0 · MIT</div>
+      <div class="srcs">
+        <a href="https://www.krea.ai/blog/anime-backgrounds-with-krea-2" target="_blank" rel="noopener">Krea：Anime Backgrounds</a>
+        <a href="https://www.krea.ai/blog/studio-anime-aesthetics-with-krea-2" target="_blank" rel="noopener">Krea：Studio Anime Aesthetics</a>
+        <a href="https://github.com/ukr8b3g-cmyk/Krea2-Character-Catalog" target="_blank" rel="noopener">Krea2 Character Catalog</a>
+        <a href="https://developers.openai.com/api/docs/guides/tools-skills" target="_blank" rel="noopener">Agent Skills 格式</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var GH = "https://github.com/";
+  try {
+    var m = location.href.match(/^https?:\/\/([^.]+)\.github\.io\/([^/?#]+)/);
+    if (m) GH = "https://github.com/" + m[1] + "/" + m[2];
+  } catch(e){}
+  var b = document.getElementById("ghBtn");
+  if (b) b.href = GH;
+
+  // example tabs
+  var tabs = document.querySelectorAll(".tab");
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(){
+      var id = t.getAttribute("data-ex");
+      tabs.forEach(function(x){ x.classList.toggle("on", x === t); });
+      document.querySelectorAll(".panel").forEach(function(p){
+        p.classList.toggle("on", p.getAttribute("data-ex") === id);
+      });
+    });
+  });
+
+  // language toggle inside each panel
+  document.querySelectorAll(".langbar").forEach(function(bar){
+    var btns = bar.querySelectorAll(".lang");
+    btns.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var lang = btn.getAttribute("data-lang");
+        btns.forEach(function(x){ x.classList.toggle("on", x === btn); });
+        var panel = bar.parentElement;
+        panel.querySelectorAll("[data-lang]").forEach(function(el){
+          if (el.classList.contains("lang")) return;
+          el.style.display = el.getAttribute("data-lang") === lang ? "" : "none";
+        });
+      });
+    });
+  });
+
+  // copy buttons
+  document.querySelectorAll(".copy").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var txt = document.getElementById(btn.getAttribute("data-target")).innerText;
+      var done = function(){
+        var old = btn.textContent;
+        btn.textContent = "已复制";
+        setTimeout(function(){ btn.textContent = old; }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(done, function(){});
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = txt; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
