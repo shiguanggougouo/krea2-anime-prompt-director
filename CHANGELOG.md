@@ -14,6 +14,8 @@
 - 支持 `←` `→` 翻页、`Esc` 关闭，以及 `#case-7` 这样的深链接直接分享单个案例
 - 图片按用途分三档压缩：1600px 大图（灯箱）、760px 缩略（网格）、440px 迷你（滚动带）
 - 卡片 hover 边框光晕取自每张图自身的主色
+- **默认排序按用户输入的词数从少到多**（中文按字、英文按词），输入越短越靠前；
+  卡片与灯箱都标出该案例的输入长度，翻页顺序跟随显示顺序，`#case-N` 深链仍指向固定编号
 
 **24-case gallery**
 
@@ -23,6 +25,8 @@
 - Arrow-key paging, Esc to close, and shareable deep links such as `#case-7`
 - Three image sizes: 1600px for the lightbox, 760px for the grid, 440px for the strip
 - Each card's hover glow is sampled from its own image
+- **Default order is by input length, shortest first** (CJK per character, everything else per word);
+  the input length is shown on each card and in the lightbox, paging follows the on-screen order, and `#case-N` still points at a fixed case
 
 ---
 

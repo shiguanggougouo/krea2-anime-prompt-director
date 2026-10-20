@@ -282,6 +282,8 @@
   .gal-stats b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;
     background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
   .gal-stats span{font-size:12.5px;color:var(--muted2);}
+  .order-note{margin:22px 0 -6px;font-size:13.5px;color:var(--muted2);line-height:1.65;}
+  .order-note b{color:var(--muted);}
   .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
   .ccard{
     position:relative;display:block;padding:0;border:1px solid var(--border);border-radius:14px;
@@ -469,6 +471,10 @@ Village, casually reading a small orange-covered paperback...
         <div><b>1</b><span><span class="i18n-zh">句输入</span><span class="i18n-en">line each</span></span></div>
       </div>
     </div>
+    <p class="order-note">
+      <span class="i18n-zh">默认按<b>用户输入的词数</b>从少到多排列 —— 输入越短，扩写的落差越明显。中文按字计，英文按词计；每张卡片下方标出了它的输入长度。</span>
+      <span class="i18n-en">Sorted by <b>how much the user typed</b>, shortest first — the shorter the input, the bigger the jump. CJK counts per character, everything else per word; each card shows its input length.</span>
+    </p>
     <div class="cgrid" id="caseGrid"></div>
     <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center;">
       <span class="i18n-zh">图片在 Krea 2 中生成；提示词为 skill 原始返回。点任意一张看完整内容，也可以用 ← → 翻页。</span>
@@ -1095,22 +1101,39 @@ The low camera angle places the square ring across the lower half of the frame, 
   }
   function pad2(n){ return (n < 10 ? "0" : "") + n; }
 
+  /* Count how much the user actually typed: one token per CJK character,
+     one per word elsewhere. Default order is shortest input first. */
+  var CJK = /[\u3400-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]/g;
+  function inputTokens(s){
+    var t = String(s == null ? "" : s);
+    var cjk = (t.match(CJK) || []).length;
+    var rest = t.replace(CJK, " ");
+    var words = (rest.match(/[A-Za-z0-9'’\-_()]+/g) || []).length;
+    return cjk + words;
+  }
+  var TOK = CASES.map(function(c){ return inputTokens(c.input); });
+  var VIEW = CASES.map(function(c, i){ return i; }).sort(function(a, b){
+    if (TOK[a] !== TOK[b]) return TOK[a] - TOK[b];
+    return CASES[a].n - CASES[b].n;
+  });
+
   var grid = document.getElementById("caseGrid");
   var stripTrack = document.getElementById("stripTrack");
 
   if (CASES.length) {
     if (grid) {
-      grid.innerHTML = CASES.map(function(c, i){
+      grid.innerHTML = VIEW.map(function(i, pos){
+        var c = CASES[i];
         return '<div class="ccard" role="button" tabindex="0" data-i="' + i + '" style="--tint:' + c.tint + '" aria-label="' + esc(c.titleEn) + '">' +
-          '<img src="' + c.thumb + '" alt="' + esc(c.titleEn) + '" loading="' + (i < 6 ? "eager" : "lazy") + '" decoding="async">' +
+          '<img src="' + c.thumb + '" alt="' + esc(c.titleEn) + '" loading="' + (pos < 6 ? "eager" : "lazy") + '" decoding="async">' +
           '<span class="shade"></span>' +
           '<span class="num">' + pad2(c.n) + '</span>' +
           '<span class="cap"><h3><i class="dotmark"></i>' +
             '<span class="i18n-zh">' + esc(c.titleZh) + '</span>' +
             '<span class="i18n-en">' + esc(c.titleEn) + '</span>' +
           '</h3><span class="wk">' +
-            '<span class="i18n-zh">' + esc(c.work) + '</span>' +
-            '<span class="i18n-en">' + esc(c.workEn) + '</span>' +
+            '<span class="i18n-zh">' + esc(c.work) + ' · 输入 ' + TOK[i] + ' 词</span>' +
+            '<span class="i18n-en">' + esc(c.workEn) + ' · ' + TOK[i] + ' words in</span>' +
           '</span></span>' +
         '</div>';
       }).join("");
@@ -1123,7 +1146,8 @@ The low camera angle places the square ring across the lower half of the frame, 
     }
 
     if (stripTrack) {
-      var seq = CASES.slice(0, 12).map(function(c, i){
+      var seq = VIEW.slice(0, 12).map(function(i){
+        var c = CASES[i];
         var mini = c.thumb.replace("gallery/thumbs/", "gallery/mini/");
         return '<a href="#gallery" data-i="' + i + '" aria-label="' + esc(c.titleEn) + '"><img src="' + mini + '" alt="" loading="lazy" decoding="async"></a>';
       }).join("");
@@ -1138,6 +1162,15 @@ The low camera angle places the square ring across the lower half of the frame, 
   var lbIndex = 0;
   var lastFocus = null;
 
+  function caseIndexFromNum(num){
+    for (var k = 0; k < CASES.length; k++) { if (CASES[k].n === num) return k; }
+    return -1;
+  }
+  function posInView(i){
+    var p = VIEW.indexOf(i);
+    return p < 0 ? 0 : p;
+  }
+
   function openCase(i){
     if (!lb || !CASES.length) return;
     lbIndex = (i + CASES.length) % CASES.length;
@@ -1145,7 +1178,11 @@ The low camera angle places the square ring across the lower half of the frame, 
     lastFocus = document.activeElement;
     lbImg.src = c.img;
     lbImg.alt = c.titleEn;
-    document.getElementById("lbKicker").textContent = "CASE " + pad2(c.n) + " / " + CASES.length;
+    document.getElementById("lbKicker").textContent =
+      "CASE " + pad2(c.n) + " / " + CASES.length + " · " +
+      (document.body.getAttribute("data-lang") === "en"
+        ? TOK[lbIndex] + " words in"
+        : "输入 " + TOK[lbIndex] + " 词");
     document.getElementById("lbTitleZh").textContent = c.titleZh;
     document.getElementById("lbTitleEn").textContent = c.titleEn;
     document.getElementById("lbWorkZh").textContent = c.work;
@@ -1170,7 +1207,11 @@ The low camera angle places the square ring across the lower half of the frame, 
     if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
-  function stepCase(d){ openCase(lbIndex + d); }
+  /* paging follows the on-screen order, not the array order */
+  function stepCase(d){
+    var p = (posInView(lbIndex) + d + VIEW.length) % VIEW.length;
+    openCase(VIEW[p]);
+  }
 
   document.addEventListener("click", function(e){
     var t = e.target;
@@ -1215,17 +1256,17 @@ The low camera angle places the square ring across the lower half of the frame, 
       }
     });
 
-    /* deep link: #case-7 opens that case directly and is shareable */
+    /* deep link: #case-7 opens case number 7 (its own id, not its position) */
     var hm = (location.hash || "").match(/^#case-(\d+)$/);
     if (hm) {
-      var direct = parseInt(hm[1], 10) - 1;
-      if (direct >= 0 && direct < CASES.length) openCase(direct);
+      var direct = caseIndexFromNum(parseInt(hm[1], 10));
+      if (direct >= 0) openCase(direct);
     }
     window.addEventListener("hashchange", function(){
       var m = (location.hash || "").match(/^#case-(\d+)$/);
       if (m) {
-        var i = parseInt(m[1], 10) - 1;
-        if (i >= 0 && i < CASES.length) openCase(i);
+        var i = caseIndexFromNum(parseInt(m[1], 10));
+        if (i >= 0) openCase(i);
       } else if (lb.classList.contains("on")) {
         lb.classList.remove("on");
         lb.setAttribute("aria-hidden", "true");
