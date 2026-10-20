@@ -4,15 +4,19 @@ These are demonstrations of the skill's target quality and workflow, not fixed t
 
 For action-led images and multi-character exchanges, also use the staging principles in `action-direction.md`. The examples below illustrate one frozen story beat with clear body mechanics, environmental cause and effect, or reciprocal character reactions.
 
-## Example 1 — Canon character in a recognizable world
+## Example 1 — Two canon characters in a recognizable world
 
-**User idea:** 旗木卡卡西
+**User idea:** 海绵宝宝和派大星
 
 **POSITIVE:**
-A cinematic 2D shonen-anime key illustration of Hatake Kakashi from Naruto, identifiable by his unruly silver hair swept into sharp spikes, a Leaf forehead protector slanted over his left eye, one relaxed visible eye, the black mask covering his nose and mouth, and the high collar and segmented pockets of his green flak jacket over a dark undersuit. He sits sideways on the curved ridge of a tiled rooftop in the Hidden Leaf Village, casually reading a small orange-covered paperback, his shoulders loose but his visible eye still observant. Keep the forehead protector, eye, and mask unobstructed. One gloved hand steadies the book against the breeze while his other rests near his raised knee; the loose edge of his vest and a few silver hair tips lift in the same wind. Soft leaves frame the near corner of the image, slightly out of focus. Below him, timber balconies, narrow shopfronts, hanging signs, ceramic roof tiles, and a few warm paper lanterns form layered streets that recede toward the Hokage Monument carved into the distant mountain. A painted awning and rain-dark wooden stairway lead the eye down toward the village street, while the rooftops leave a clear gap around the monument. Recent rain darkens the tiles and leaves tiny amber reflections along their edges; late-afternoon sunlight slips through broken clouds and catches the tips of his hair, while cool green-blue shadows hold the village together. Let the focus fall gently from Kakashi's sharply drawn eye and gloved hand to the receding street, keeping the distant monument readable through the roofline gap. Fine ink contours define the hair spikes, mask folds, vest pockets, and book edge; softer painted gradients reserve the atmosphere for the sky and mountain. Clean, confident cel-painted forms, carefully controlled linework, and a restrained green, slate, and warm-amber palette create a quiet moment of watchfulness rather than a posed character sheet.
+Anime-style illustration of SpongeBob SquarePants and Patrick Star from SpongeBob SquarePants, jellyfishing together in Jellyfish Fields. SpongeBob, a bright yellow square sponge with large blue eyes, wears his white shirt, red tie, brown square pants, knee-high socks, and shiny black shoes. He leans forward with a jellyfishing net raised, delighted as a glowing pink jellyfish drifts just within reach. Beside him, Patrick—a round pink starfish in green shorts with purple flowers—reaches up to point at another jellyfish that has landed gently on his head. They exchange a laughing glance, their different reactions making the moment feel playful and spontaneous.
+
+Tall purple sea grass frames the foreground; rolling sandy mounds, swaying kelp, and scattered shells lead through the middle distance toward Bikini Bottom’s distant buildings. Bubbles rise through the clear blue water, and the jellyfish glow softly against the sunlit seabed. Use lively anime linework, bright cel-painted colors, and gentle underwater light rays. Keep both characters’ familiar shapes, faces, and outfits recognizable, with the jellyfish and net clearly visible.
 
 **中文对照：**
-一幅具有电影感的二维少年热血动漫关键插画，描绘《火影忍者》中的旗木卡卡西。他蓬松的银发向上分成清晰尖束，木叶护额斜压在左眼上方，一只放松却警觉的眼睛露在外面，黑色面罩遮住鼻子和嘴；深色紧身内搭外是带高领与分区口袋的绿色上忍马甲。他侧坐在木叶村一处弧形瓦顶的屋脊上，随意地读着一本橙色封面的平装小书。护额、露出的眼睛和面罩都清晰可见，不被遮挡。一只戴手套的手按住被风掀动的书页，另一只手搭在屈起的膝头；马甲下摆与几缕银发朝同一方向轻扬。虚化的近景树叶从画面一角伸入。屋顶下方，木质阳台、狭窄店面、悬挂招牌、陶制瓦片和几盏温暖的纸灯笼层层排列，街道逐渐延伸至远方山体上雕刻的火影岩。彩绘布篷和被雨淋深色的木楼梯将视线引向村道，层叠屋顶之间则为远处雕像留出清晰空隙。雨水打湿瓦片，在边缘留下细小琥珀色反光；午后阳光穿过云隙，照亮他的发梢，冷绿与蓝灰色阴影则统一了整座村庄。焦点从卡卡西清晰的眼睛与戴手套的手逐渐过渡到向远处收束的街巷，同时让火影岩仍能透过屋顶间隙辨认出来。细密墨线刻画发束、面罩褶皱、马甲口袋和书本边缘，柔和绘画渐变则留给天空与山体，强化近实远虚的层次。清晰沉稳的赛璐珞色块、克制准确的线条，以及绿色、石板灰与暖琥珀色的协调配色，营造出安静警觉的瞬间，而非单纯的人物设定图。
+《海绵宝宝》的海绵宝宝和派大星在水母田里一起捕捉水母。海绵宝宝是一块亮黄色的方形海绵，有一双大大的蓝眼睛，穿着白衬衫、红领带、棕色方裤、及膝袜和擦得发亮的黑皮鞋。他兴奋地向前倾身，举起捕网，正要接住一只漂到网边的粉色发光水母。旁边的派大星是一只圆滚滚的粉色海星，穿着印有紫色花朵的绿色短裤；他抬手指向另一只轻轻落在自己头顶的水母。两人笑着对视，截然不同的反应让这一刻显得轻松又俏皮。
+
+高高的紫色海草框住前景；起伏的沙丘、摇曳的海藻和散落的贝壳一路延伸至中景，远处隐约可见比奇堡的建筑。气泡在清澈的蓝色海水中上升，水母在阳光照亮的海床上柔和发光。采用活泼的动漫线稿、明快的赛璐珞色彩和柔和的水下光束。确保两位角色熟悉的造型、面容和服装清晰可辨，水母与捕网也要明确呈现。
 
 ## Example 2 — Shoujo heroine and a classic moonlit scene
 

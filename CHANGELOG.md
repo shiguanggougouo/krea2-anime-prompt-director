@@ -48,6 +48,8 @@
 - 移动端（390px）重新校对：标题不断词、语言开关留在导航内、卡片单列
 - 板块顺序重排：案例 → 能力 → 为什么 → 画风 → 安装 → 边界 → 工作流 → 更新日志，
   导航同步调整；「为什么」紧跟能力之后，工作流与日志沉到页尾
+- 示例统一换成「海绵宝宝和派大星」（即画廊里第 11 个案例的真实会话）：
+  `references/examples.md` 的第一个示例、两份 README 的「使用 / 输出」、落地页安装区的示例命令三处同步
 
 **A calmer, image-first visual refresh**
 
@@ -65,6 +67,8 @@
 - Re-checked at 390px: no broken headline wraps, the language switch stays inside the nav, cards stack in one column
 - Section order reshuffled to cases → features → why → styles → install → limits → workflow → changelog, with the nav
   following along: "why" now sits right after the features, and the workflow and changelog sink to the end of the page
+- Doc examples now use SpongeBob and Patrick Star (the real session behind gallery case 11): the first example in
+  `references/examples.md`, the "Use / Output" blocks in both READMEs, and the sample command in the install section
 
 ---
 

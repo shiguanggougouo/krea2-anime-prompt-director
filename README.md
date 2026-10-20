@@ -42,7 +42,7 @@ git clone https://github.com/shiguanggougouo/krea2-anime-prompt-director.git ~/.
 Just describe what you want and let the skill do the work:
 
 ```
-用 krea2-anime-prompt-director 扩写：旗木卡卡西
+用 krea2-anime-prompt-director 扩写：海绵宝宝和派大星
 ```
 
 ```
@@ -59,16 +59,16 @@ Only two sections — nothing else, no process notes:
 
 ```
 POSITIVE:
-A cinematic 2D shonen-anime key illustration of Hatake Kakashi from Naruto, identifiable by his
-unruly silver hair swept into sharp spikes, a Leaf forehead protector slanted over his left eye,
-one relaxed visible eye, the black mask covering his nose and mouth, and the high collar and
-segmented pockets of his green flak jacket over a dark undersuit. He sits sideways on the curved
-ridge of a tiled rooftop in the Hidden Leaf Village, casually reading a small orange-covered
-paperback...
+Anime-style illustration of SpongeBob SquarePants and Patrick Star from SpongeBob SquarePants,
+jellyfishing together in Jellyfish Fields. SpongeBob, a bright yellow square sponge with large blue
+eyes, wears his white shirt, red tie, brown square pants, knee-high socks, and shiny black shoes.
+He leans forward with a jellyfishing net raised, delighted as a glowing pink jellyfish drifts just
+within reach...
 
 中文对照：
-一幅具有电影感的二维少年热血动漫关键插画，描绘《火影忍者》中的旗木卡卡西。他蓬松的银发向上分成
-清晰尖束，木叶护额斜压在左眼上方，一只放松却警觉的眼睛露在外面，黑色面罩遮住鼻子和嘴……
+《海绵宝宝》的海绵宝宝和派大星在水母田里一起捕捉水母。海绵宝宝是一块亮黄色的方形海绵，有一双
+大大的蓝眼睛，穿着白衬衫、红领带、棕色方裤、及膝袜和擦得发亮的黑皮鞋。他兴奋地向前倾身，举起
+捕网，正要接住一只漂到网边的粉色发光水母……
 ```
 
 ---
