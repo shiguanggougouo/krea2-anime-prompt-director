@@ -34,6 +34,36 @@
 
 ---
 
+## Site — 2026-10-20（视觉改版 / visual refresh）
+
+**整站换成暖白底、图片优先的简洁风格**
+
+- 底色从纯白改为暖白 `#fcfcfb`，叠一层极淡纸纹；区块之间用统一的 84px 竖向节奏切分，白底区与浅底区交替
+- 画廊卡片去掉压在图片左上角的编号胶囊，编号下移到标题下方的灰字行 —— 图片不再被任何控件遮挡
+- 能力区 8 张卡片补一张「去安装」收尾卡，3×3 网格不再留空位
+- 更新日志默认只展开当前版本，1.5.0 及更早折叠进「更早的 6 个版本」，长页面一下子短了一半
+- 工作流步骤收窄到 760px 居中，长文不再贴左阅读
+- 标题渐变由紫→青改为靛→天蓝，去掉荧光感；按钮、导航、卡片统一 14px 圆角与两档柔和阴影
+- 修好目录树的换行问题（此前所有行被压成一整行）
+- 移动端（390px）重新校对：标题不断词、语言开关留在导航内、卡片单列
+
+**A calmer, image-first visual refresh**
+
+- Background moves from pure white to a warm off-white `#fcfcfb` with a barely-there paper grain;
+  sections now alternate between plain and lightly tinted bands on a consistent 84px vertical rhythm
+- Gallery cards lose the number pill that sat on top of each image — the index moves down into the muted
+  caption line, so nothing covers the artwork
+- The eight capability cards gain a ninth "go install" card, so the 3×3 grid no longer ends on an orphan
+- The changelog opens the current version only; 1.5.0 and older fold into "six earlier versions",
+  cutting the page length roughly in half
+- Workflow steps narrow to a centred 760px column instead of hugging the left edge
+- The headline gradient shifts from violet→teal to indigo→sky, losing the neon feel; buttons, nav and cards
+  share a 14px radius and two soft shadow tiers
+- Fixed the repository tree collapsing onto a single line
+- Re-checked at 390px: no broken headline wraps, the language switch stays inside the nav, cards stack in one column
+
+---
+
 ## 1.6.0 — 2026-10-19
 
 **动作要让人记住，多人要有交流**
