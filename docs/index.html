@@ -412,11 +412,11 @@
     <a class="brand" href="#top"><span class="dot"></span><span class="brand-t">Krea 2 Anime Prompt Director</span></a>
     <div class="nav-links">
       <a href="#gallery"><span class="i18n-zh">案例</span><span class="i18n-en">Cases</span></a>
-      <a href="#why"><span class="i18n-zh">为什么</span><span class="i18n-en">Why</span></a>
       <a href="#features"><span class="i18n-zh">能力</span><span class="i18n-en">Features</span></a>
+      <a href="#why"><span class="i18n-zh">为什么</span><span class="i18n-en">Why</span></a>
+      <a href="#install"><span class="i18n-zh">安装</span><span class="i18n-en">Install</span></a>
       <a href="#how"><span class="i18n-zh">工作流</span><span class="i18n-en">Workflow</span></a>
       <a href="#changelog"><span class="i18n-zh">更新日志</span><span class="i18n-en">Changelog</span></a>
-      <a href="#install"><span class="i18n-zh">安装</span><span class="i18n-en">Install</span></a>
     </div>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-set-lang="zh" class="on">中文</button>
@@ -444,7 +444,6 @@
   </div>
   <div class="strip"><div class="strip-track" id="stripTrack"></div></div>
 </header>
-
 <section id="gallery" class="plain">
   <div class="wrap">
     <div class="gal-top">
@@ -470,60 +469,7 @@
     </p>
   </div>
 </section>
-
-<section id="why" class="band">
-  <div class="wrap">
-    <div class="head">
-      <div class="kicker"><span class="i18n-zh">为什么</span><span class="i18n-en">Why</span></div>
-      <h2>
-        <span class="i18n-zh">通用提示词助手，和这个 skill 的差别</span>
-        <span class="i18n-en">A generic prompt helper vs. this skill</span>
-      </h2>
-      <p class="lede">
-        <span class="i18n-zh">Krea 2 要的是连贯的自然语言描述，不是 Danbooru 标签串。差别主要在这五处。</span>
-        <span class="i18n-en">Krea 2 wants connected natural-language prose, not Danbooru tag strings. The difference shows up in five places.</span>
-      </p>
-    </div>
-    <div class="compare">
-      <div class="cmp bad">
-        <h4><span class="i18n-zh">通用写法</span><span class="i18n-en">Generic</span></h4>
-        <ul class="i18n-zh">
-          <li>前置 <code>masterpiece, best quality, 8k</code> 之类质量宏</li>
-          <li>背景只写"在房间里""在户外"</li>
-          <li>写"天下第一武道会"，指望模型自己知道长什么样</li>
-          <li>同一个角色永远套同一套默认服装</li>
-          <li>反复出图都是同一个姿势同一个场景</li>
-        </ul>
-        <ul class="i18n-en">
-          <li>Prepends quality macros like <code>masterpiece, best quality, 8k</code></li>
-          <li>Leaves the background as "in a room" or "outdoors"</li>
-          <li>Writes "at the World Martial Arts Tournament" and expects the model to know it</li>
-          <li>Pastes one default outfit onto a character forever</li>
-          <li>Every repeat is the same pose in the same place</li>
-        </ul>
-      </div>
-      <div class="cmp good">
-        <h4><span class="i18n-zh">本 skill</span><span class="i18n-en">This skill</span></h4>
-        <ul class="i18n-zh">
-          <li>连贯英文散文，标签只在你要的时候才给</li>
-          <li>选一个原作经典场景，描述建筑、材质、尺度、光照、天气</li>
-          <li>把专有名词翻译成可绘制的物理布局与可辨识标识</li>
-          <li>先判定"故事时刻版本"：篇章、地点、身份、变身状态</li>
-          <li>同一角色再次出现时，场景和动作都换</li>
-        </ul>
-        <ul class="i18n-en">
-          <li>Connected English prose; tags only when you ask for them</li>
-          <li>Picks a canon setting and describes architecture, materials, scale, light, weather</li>
-          <li>Translates proper nouns into a drawable layout and recognizable identifiers</li>
-          <li>Resolves the "story-moment version" first: arc, location, role, transformation state</li>
-          <li>When a character recurs, both the setting and the action change</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="features">
+<section id="features" class="band">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">能力</span><span class="i18n-en">Capabilities</span></div>
@@ -579,8 +525,146 @@
     </div>
   </div>
 </section>
+<section id="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker"><span class="i18n-zh">为什么</span><span class="i18n-en">Why</span></div>
+      <h2>
+        <span class="i18n-zh">通用提示词助手，和这个 skill 的差别</span>
+        <span class="i18n-en">A generic prompt helper vs. this skill</span>
+      </h2>
+      <p class="lede">
+        <span class="i18n-zh">Krea 2 要的是连贯的自然语言描述，不是 Danbooru 标签串。差别主要在这五处。</span>
+        <span class="i18n-en">Krea 2 wants connected natural-language prose, not Danbooru tag strings. The difference shows up in five places.</span>
+      </p>
+    </div>
+    <div class="compare">
+      <div class="cmp bad">
+        <h4><span class="i18n-zh">通用写法</span><span class="i18n-en">Generic</span></h4>
+        <ul class="i18n-zh">
+          <li>前置 <code>masterpiece, best quality, 8k</code> 之类质量宏</li>
+          <li>背景只写"在房间里""在户外"</li>
+          <li>写"天下第一武道会"，指望模型自己知道长什么样</li>
+          <li>同一个角色永远套同一套默认服装</li>
+          <li>反复出图都是同一个姿势同一个场景</li>
+        </ul>
+        <ul class="i18n-en">
+          <li>Prepends quality macros like <code>masterpiece, best quality, 8k</code></li>
+          <li>Leaves the background as "in a room" or "outdoors"</li>
+          <li>Writes "at the World Martial Arts Tournament" and expects the model to know it</li>
+          <li>Pastes one default outfit onto a character forever</li>
+          <li>Every repeat is the same pose in the same place</li>
+        </ul>
+      </div>
+      <div class="cmp good">
+        <h4><span class="i18n-zh">本 skill</span><span class="i18n-en">This skill</span></h4>
+        <ul class="i18n-zh">
+          <li>连贯英文散文，标签只在你要的时候才给</li>
+          <li>选一个原作经典场景，描述建筑、材质、尺度、光照、天气</li>
+          <li>把专有名词翻译成可绘制的物理布局与可辨识标识</li>
+          <li>先判定"故事时刻版本"：篇章、地点、身份、变身状态</li>
+          <li>同一角色再次出现时，场景和动作都换</li>
+        </ul>
+        <ul class="i18n-en">
+          <li>Connected English prose; tags only when you ask for them</li>
+          <li>Picks a canon setting and describes architecture, materials, scale, light, weather</li>
+          <li>Translates proper nouns into a drawable layout and recognizable identifiers</li>
+          <li>Resolves the "story-moment version" first: arc, location, role, transformation state</li>
+          <li>When a character recurs, both the setting and the action change</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="styles" class="band">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker"><span class="i18n-zh">画风锚点</span><span class="i18n-en">Style anchors</span></div>
+      <h2><span class="i18n-zh">内置画风锚点</span><span class="i18n-en">Built-in style anchors</span></h2>
+      <p class="lede"><span class="i18n-zh">一个主导锚点，最多一个有界变体。名字只是视觉锚，不是魔法关键词 —— 必须配上具体的配色、线条、光、介质与情绪。</span><span class="i18n-en">One dominant anchor, at most one bounded twist. A name is a visual anchor, not a magic keyword — it must be paired with concrete palette, linework, light, medium and mood.</span></p>
+    </div>
+    <div class="grid g2">
+      <div class="pill"><b>Studio Ghibli aesthetic</b><span class="i18n-zh">手绘水彩感、克制的自然配色、风化的乡间木石、层叠绿意、柔和正午光</span><span class="i18n-en">Hand-painted watercolor feel, restrained natural palette, weathered rural wood and stone, lush greenery, soft midday light</span></div>
+      <div class="pill"><b>Makoto Shinkai / CoMix Wave Films</b><span class="i18n-zh">高饱和天空、细密云缘、阳光耀斑、蓝调时刻渐变、电线与电线杆作前景</span><span class="i18n-en">Hyper-saturated sky, intricate cloud edges, sun flare, blue-hour gradients, wires and poles as framing</span></div>
+      <div class="pill"><b>Kyoto Animation</b><span class="i18n-zh">明亮而微带怅惘、温暖自然窗光、精细纤柔线条、有生活痕迹的室内物件</span><span class="i18n-en">Bright yet gently melancholic, warm window light, delicate linework, lived-in interior objects</span></div>
+      <div class="pill"><b>Madhouse / urban-noir</b><span class="i18n-zh">冷蓝绿配色、硬边赛璐璐阴影、湿沥青、都市密度、钠灯黄点缀</span><span class="i18n-en">Cool blue-green palette, hard cel-shaded shadows, wet asphalt, urban density, sodium-yellow accents</span></div>
+      <div class="pill"><b>1990s Sunrise / classic OVA mecha</b><span class="i18n-zh">硬边赛璐璐、粗犷线条、手绘工业背景、强机械轮廓、厚重阴影</span><span class="i18n-en">Hard-edged cel shading, bold linework, painted industrial backgrounds, strong mechanical silhouettes, weighty shadows</span></div>
+      <div class="pill"><b><span class="i18n-zh">少女 / 青年 / 经典热血战斗</span><span class="i18n-en">Shoujo / seinen / classic battle-shonen</span></b><span class="i18n-zh">纤细轮廓与花卉光点／克制的都市夜色与成人张力／清晰动作剪影与速度线</span><span class="i18n-en">Delicate contours and floral sparkles / restrained city night and adult tension / clear action silhouettes and speed lines</span></div>
+    </div>
+  </div>
+</section>
+<section id="install">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker"><span class="i18n-zh">安装</span><span class="i18n-en">Install</span></div>
+      <h2><span class="i18n-zh">一分钟装上</span><span class="i18n-en">Up and running in a minute</span></h2>
+      <p class="lede"><span class="i18n-zh">整个文件夹放进你的 agent 读取的 skills 目录即可。<code>SKILL.md</code> 与 <code>references/</code> 必须在一起。</span><span class="i18n-en">Drop the folder into the skills directory your agent reads. <code>SKILL.md</code> and <code>references/</code> must stay together.</span></p>
+    </div>
+    <div class="codebox">
+      <button class="copy" data-target="c1"><span class="i18n-zh">复制</span><span class="i18n-en">Copy</span></button>
+      <pre id="c1">git clone https://github.com/shiguanggougouo/krea2-anime-prompt-director.git .agents/skills/krea2-anime-prompt-director</pre>
+    </div>
+    <div class="codebox">
+      <button class="copy" data-target="c2"><span class="i18n-zh">复制</span><span class="i18n-en">Copy</span></button>
+      <pre id="c2">git clone https://github.com/shiguanggougouo/krea2-anime-prompt-director.git ~/.workbuddy/skills/krea2-anime-prompt-director</pre>
+    </div>
+    <p style="font-size:14px;color:var(--muted2);margin-top:2px;">
+      <span class="i18n-zh">第一条适用于 Codex 的仓库内 <code>.agents/skills/</code>；第二条适用于 WorkBuddy 等用户级 skills 目录。</span>
+      <span class="i18n-en">The first suits a repo-local <code>.agents/skills/</code> (Codex); the second suits a user-level skills directory such as WorkBuddy's.</span>
+    </p>
 
-<section id="how" class="band">
+    <h3 style="margin:38px 0 14px;font-size:18px;"><span class="i18n-zh">目录结构</span><span class="i18n-en">Repository layout</span></h3>
+    <div class="tree">
+<span class="d">krea2-anime-prompt-director/</span>
+├── <span class="d">SKILL.md</span>                        <span class="n"><span class="i18n-zh">核心行为 + 工作流 + 输出格式</span><span class="i18n-en">core behavior, workflow, output format</span></span>
+├── <span class="d">README.md</span>                       <span class="n"><span class="i18n-zh">英文 / English</span><span class="i18n-en">English edition</span></span>
+├── <span class="d">README.zh-CN.md</span>                <span class="n"><span class="i18n-zh">中文版</span><span class="i18n-en">Chinese edition</span></span>
+├── <span class="d">CHANGELOG.md</span>                    <span class="n"><span class="i18n-zh">版本更新日志</span><span class="i18n-en">version history</span></span>
+├── <span class="d">LICENSE</span>                         <span class="n">MIT</span>
+├── <span class="d">docs/</span>
+│   └── <span class="d">index.html</span>                <span class="n"><span class="i18n-zh">本页（GitHub Pages 源，中英双语）</span><span class="i18n-en">this page (GitHub Pages source, bilingual)</span></span>
+└── <span class="d">references/</span>
+    ├── <span class="d">action-direction.md</span>      <span class="n"><span class="i18n-zh">动作与角色互动规范</span><span class="i18n-en">action staging and interaction</span></span>
+    ├── <span class="d">style-language.md</span>        <span class="n"><span class="i18n-zh">风格矩阵 / 场景语言库 / 提示词骨架</span><span class="i18n-en">style matrix, language bank, scaffolds</span></span>
+    ├── <span class="d">examples.md</span>              <span class="n"><span class="i18n-zh">完整中英示例</span><span class="i18n-en">full EN/CN examples</span></span>
+    ├── <span class="d">catalog-workflow.md</span>      <span class="n"><span class="i18n-zh">Catalog 证据化处理流程</span><span class="i18n-en">evidence-aware catalog workflow</span></span>
+    └── <span class="d">source-notes.md</span>          <span class="n"><span class="i18n-zh">来源链接、结论与验证边界</span><span class="i18n-en">sources, findings, verification limits</span></span>
+    </div>
+
+    <h3 style="margin:38px 0 14px;font-size:18px;"><span class="i18n-zh">怎么用</span><span class="i18n-en">How to use it</span></h3>
+    <div class="codebox">
+      <button class="copy" data-target="c3"><span class="i18n-zh">复制</span><span class="i18n-en">Copy</span></button>
+      <pre id="c3">用 krea2-anime-prompt-director 扩写：旗木卡卡西</pre>
+    </div>
+  </div>
+</section>
+<section id="limits" class="band">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker"><span class="i18n-zh">诚实边界</span><span class="i18n-en">Honest limits</span></div>
+      <h2><span class="i18n-zh">它不做什么</span><span class="i18n-en">What it does not do</span></h2>
+    </div>
+    <div class="grid g2">
+      <div class="note">
+        <span class="i18n-zh"><b>不自带 Krea2 Character Catalog 数据集。</b>只有真的存在可访问条目、导出文件或你提供的文件时才使用；查不到就继续用可靠知识，不伪造引用。</span>
+        <span class="i18n-en"><b>It does not bundle the Krea2 Character Catalog dataset.</b> It uses an accessible entry, export or provided file when one exists, and otherwise continues with reliable knowledge instead of fabricating a citation.</span>
+      </div>
+      <div class="note">
+        <span class="i18n-zh"><b>目录条目是临时性的。</b>匹配结果只是有用证据，不等于设定，更不等于"该角色在 Krea 2 训练数据里"。</span>
+        <span class="i18n-en"><b>Catalog entries are provisional.</b> A match is useful evidence, not canon, and never proof that the character exists in Krea 2's training data.</span>
+      </div>
+      <div class="note">
+        <span class="i18n-zh"><b>不保证系列一致性。</b>纯文本提示词无法锁死角色连续性；做系列请用 Krea 2 的风格参考，或 20–40 张参考图组成的 mood board。</span>
+        <span class="i18n-en"><b>Series consistency is not guaranteed.</b> Prompt text alone cannot lock character continuity; use a Krea 2 style reference or a mood board of roughly 20–40 frames.</span>
+      </div>
+      <div class="note">
+        <span class="i18n-zh"><b>默认不输出负面提示词。</b>除非你明确要求单独给一份 negative prompt。</span>
+        <span class="i18n-en"><b>No negative prompt by default.</b> Only when you explicitly ask for a separate negative prompt.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="how">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">工作流</span><span class="i18n-en">Workflow</span></div>
@@ -627,8 +711,7 @@
     </ol>
   </div>
 </section>
-
-<section id="changelog">
+<section id="changelog" class="band">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">更新日志</span><span class="i18n-en">Changelog</span></div>
@@ -647,12 +730,14 @@
           <li>点开任意案例看大图与全文，支持 <kbd>←</kbd> <kbd>→</kbd> 翻页、<kbd>Esc</kbd> 关闭</li>
           <li>每个案例有独立链接（如 <code>#case-7</code>），可直接分享单张</li>
           <li>整站视觉改版：暖白底、图片优先，编号移出画面，旧版日志折叠收起</li>
+          <li>板块顺序重排：案例 → 能力 → 为什么 → 画风 → 安装 → 边界 → 工作流 → 更新日志</li>
         </ul>
         <ul class="i18n-en">
           <li>Added <b>24 real cases</b> — original input, the full prompt the skill returned, and the Krea 2 render, right under the hero</li>
           <li>Open any case for the full image and text; <kbd>←</kbd> <kbd>→</kbd> page through, <kbd>Esc</kbd> closes</li>
           <li>Every case has its own shareable link, e.g. <code>#case-7</code></li>
           <li>Visual refresh: warm off-white, image-first cards, the index moved off the artwork, older entries folded</li>
+          <li>Section order reshuffled: cases → features → why → styles → install → limits → workflow → changelog</li>
         </ul>
         <div class="caveat">
           <span class="i18n-zh">这是站点更新，技能本身仍是 1.6.0。图片在 Krea 2 中生成，提示词为 skill 原始返回，未做二次润色。</span>
@@ -805,98 +890,6 @@
     </div>
   </div>
 </section>
-
-<section id="styles" class="band">
-  <div class="wrap">
-    <div class="head">
-      <div class="kicker"><span class="i18n-zh">画风锚点</span><span class="i18n-en">Style anchors</span></div>
-      <h2><span class="i18n-zh">内置画风锚点</span><span class="i18n-en">Built-in style anchors</span></h2>
-      <p class="lede"><span class="i18n-zh">一个主导锚点，最多一个有界变体。名字只是视觉锚，不是魔法关键词 —— 必须配上具体的配色、线条、光、介质与情绪。</span><span class="i18n-en">One dominant anchor, at most one bounded twist. A name is a visual anchor, not a magic keyword — it must be paired with concrete palette, linework, light, medium and mood.</span></p>
-    </div>
-    <div class="grid g2">
-      <div class="pill"><b>Studio Ghibli aesthetic</b><span class="i18n-zh">手绘水彩感、克制的自然配色、风化的乡间木石、层叠绿意、柔和正午光</span><span class="i18n-en">Hand-painted watercolor feel, restrained natural palette, weathered rural wood and stone, lush greenery, soft midday light</span></div>
-      <div class="pill"><b>Makoto Shinkai / CoMix Wave Films</b><span class="i18n-zh">高饱和天空、细密云缘、阳光耀斑、蓝调时刻渐变、电线与电线杆作前景</span><span class="i18n-en">Hyper-saturated sky, intricate cloud edges, sun flare, blue-hour gradients, wires and poles as framing</span></div>
-      <div class="pill"><b>Kyoto Animation</b><span class="i18n-zh">明亮而微带怅惘、温暖自然窗光、精细纤柔线条、有生活痕迹的室内物件</span><span class="i18n-en">Bright yet gently melancholic, warm window light, delicate linework, lived-in interior objects</span></div>
-      <div class="pill"><b>Madhouse / urban-noir</b><span class="i18n-zh">冷蓝绿配色、硬边赛璐璐阴影、湿沥青、都市密度、钠灯黄点缀</span><span class="i18n-en">Cool blue-green palette, hard cel-shaded shadows, wet asphalt, urban density, sodium-yellow accents</span></div>
-      <div class="pill"><b>1990s Sunrise / classic OVA mecha</b><span class="i18n-zh">硬边赛璐璐、粗犷线条、手绘工业背景、强机械轮廓、厚重阴影</span><span class="i18n-en">Hard-edged cel shading, bold linework, painted industrial backgrounds, strong mechanical silhouettes, weighty shadows</span></div>
-      <div class="pill"><b><span class="i18n-zh">少女 / 青年 / 经典热血战斗</span><span class="i18n-en">Shoujo / seinen / classic battle-shonen</span></b><span class="i18n-zh">纤细轮廓与花卉光点／克制的都市夜色与成人张力／清晰动作剪影与速度线</span><span class="i18n-en">Delicate contours and floral sparkles / restrained city night and adult tension / clear action silhouettes and speed lines</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="install">
-  <div class="wrap">
-    <div class="head">
-      <div class="kicker"><span class="i18n-zh">安装</span><span class="i18n-en">Install</span></div>
-      <h2><span class="i18n-zh">一分钟装上</span><span class="i18n-en">Up and running in a minute</span></h2>
-      <p class="lede"><span class="i18n-zh">整个文件夹放进你的 agent 读取的 skills 目录即可。<code>SKILL.md</code> 与 <code>references/</code> 必须在一起。</span><span class="i18n-en">Drop the folder into the skills directory your agent reads. <code>SKILL.md</code> and <code>references/</code> must stay together.</span></p>
-    </div>
-    <div class="codebox">
-      <button class="copy" data-target="c1"><span class="i18n-zh">复制</span><span class="i18n-en">Copy</span></button>
-      <pre id="c1">git clone https://github.com/shiguanggougouo/krea2-anime-prompt-director.git .agents/skills/krea2-anime-prompt-director</pre>
-    </div>
-    <div class="codebox">
-      <button class="copy" data-target="c2"><span class="i18n-zh">复制</span><span class="i18n-en">Copy</span></button>
-      <pre id="c2">git clone https://github.com/shiguanggougouo/krea2-anime-prompt-director.git ~/.workbuddy/skills/krea2-anime-prompt-director</pre>
-    </div>
-    <p style="font-size:14px;color:var(--muted2);margin-top:2px;">
-      <span class="i18n-zh">第一条适用于 Codex 的仓库内 <code>.agents/skills/</code>；第二条适用于 WorkBuddy 等用户级 skills 目录。</span>
-      <span class="i18n-en">The first suits a repo-local <code>.agents/skills/</code> (Codex); the second suits a user-level skills directory such as WorkBuddy's.</span>
-    </p>
-
-    <h3 style="margin:38px 0 14px;font-size:18px;"><span class="i18n-zh">目录结构</span><span class="i18n-en">Repository layout</span></h3>
-    <div class="tree">
-<span class="d">krea2-anime-prompt-director/</span>
-├── <span class="d">SKILL.md</span>                        <span class="n"><span class="i18n-zh">核心行为 + 工作流 + 输出格式</span><span class="i18n-en">core behavior, workflow, output format</span></span>
-├── <span class="d">README.md</span>                       <span class="n"><span class="i18n-zh">英文 / English</span><span class="i18n-en">English edition</span></span>
-├── <span class="d">README.zh-CN.md</span>                <span class="n"><span class="i18n-zh">中文版</span><span class="i18n-en">Chinese edition</span></span>
-├── <span class="d">CHANGELOG.md</span>                    <span class="n"><span class="i18n-zh">版本更新日志</span><span class="i18n-en">version history</span></span>
-├── <span class="d">LICENSE</span>                         <span class="n">MIT</span>
-├── <span class="d">docs/</span>
-│   └── <span class="d">index.html</span>                <span class="n"><span class="i18n-zh">本页（GitHub Pages 源，中英双语）</span><span class="i18n-en">this page (GitHub Pages source, bilingual)</span></span>
-└── <span class="d">references/</span>
-    ├── <span class="d">action-direction.md</span>      <span class="n"><span class="i18n-zh">动作与角色互动规范</span><span class="i18n-en">action staging and interaction</span></span>
-    ├── <span class="d">style-language.md</span>        <span class="n"><span class="i18n-zh">风格矩阵 / 场景语言库 / 提示词骨架</span><span class="i18n-en">style matrix, language bank, scaffolds</span></span>
-    ├── <span class="d">examples.md</span>              <span class="n"><span class="i18n-zh">完整中英示例</span><span class="i18n-en">full EN/CN examples</span></span>
-    ├── <span class="d">catalog-workflow.md</span>      <span class="n"><span class="i18n-zh">Catalog 证据化处理流程</span><span class="i18n-en">evidence-aware catalog workflow</span></span>
-    └── <span class="d">source-notes.md</span>          <span class="n"><span class="i18n-zh">来源链接、结论与验证边界</span><span class="i18n-en">sources, findings, verification limits</span></span>
-    </div>
-
-    <h3 style="margin:38px 0 14px;font-size:18px;"><span class="i18n-zh">怎么用</span><span class="i18n-en">How to use it</span></h3>
-    <div class="codebox">
-      <button class="copy" data-target="c3"><span class="i18n-zh">复制</span><span class="i18n-en">Copy</span></button>
-      <pre id="c3">用 krea2-anime-prompt-director 扩写：旗木卡卡西</pre>
-    </div>
-  </div>
-</section>
-
-<section id="limits" class="band">
-  <div class="wrap">
-    <div class="head">
-      <div class="kicker"><span class="i18n-zh">诚实边界</span><span class="i18n-en">Honest limits</span></div>
-      <h2><span class="i18n-zh">它不做什么</span><span class="i18n-en">What it does not do</span></h2>
-    </div>
-    <div class="grid g2">
-      <div class="note">
-        <span class="i18n-zh"><b>不自带 Krea2 Character Catalog 数据集。</b>只有真的存在可访问条目、导出文件或你提供的文件时才使用；查不到就继续用可靠知识，不伪造引用。</span>
-        <span class="i18n-en"><b>It does not bundle the Krea2 Character Catalog dataset.</b> It uses an accessible entry, export or provided file when one exists, and otherwise continues with reliable knowledge instead of fabricating a citation.</span>
-      </div>
-      <div class="note">
-        <span class="i18n-zh"><b>目录条目是临时性的。</b>匹配结果只是有用证据，不等于设定，更不等于"该角色在 Krea 2 训练数据里"。</span>
-        <span class="i18n-en"><b>Catalog entries are provisional.</b> A match is useful evidence, not canon, and never proof that the character exists in Krea 2's training data.</span>
-      </div>
-      <div class="note">
-        <span class="i18n-zh"><b>不保证系列一致性。</b>纯文本提示词无法锁死角色连续性；做系列请用 Krea 2 的风格参考，或 20–40 张参考图组成的 mood board。</span>
-        <span class="i18n-en"><b>Series consistency is not guaranteed.</b> Prompt text alone cannot lock character continuity; use a Krea 2 style reference or a mood board of roughly 20–40 frames.</span>
-      </div>
-      <div class="note">
-        <span class="i18n-zh"><b>默认不输出负面提示词。</b>除非你明确要求单独给一份 negative prompt。</span>
-        <span class="i18n-en"><b>No negative prompt by default.</b> Only when you explicitly ask for a separate negative prompt.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <div class="foot">

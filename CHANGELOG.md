@@ -46,6 +46,8 @@
 - 标题渐变由紫→青改为靛→天蓝，去掉荧光感；按钮、导航、卡片统一 14px 圆角与两档柔和阴影
 - 修好目录树的换行问题（此前所有行被压成一整行）
 - 移动端（390px）重新校对：标题不断词、语言开关留在导航内、卡片单列
+- 板块顺序重排：案例 → 能力 → 为什么 → 画风 → 安装 → 边界 → 工作流 → 更新日志，
+  导航同步调整；「为什么」紧跟能力之后，工作流与日志沉到页尾
 
 **A calmer, image-first visual refresh**
 
@@ -61,6 +63,8 @@
   share a 14px radius and two soft shadow tiers
 - Fixed the repository tree collapsing onto a single line
 - Re-checked at 390px: no broken headline wraps, the language switch stays inside the nav, cards stack in one column
+- Section order reshuffled to cases → features → why → styles → install → limits → workflow → changelog, with the nav
+  following along: "why" now sits right after the features, and the workflow and changelog sink to the end of the page
 
 ---
 
