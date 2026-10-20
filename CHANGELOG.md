@@ -44,6 +44,8 @@
 - 版面为「左封面 + 右两条章节」：封面即视频封面（1280px / 640px 两档 WebP，共 ~287KB），
   悬停轻抬 + 播放键放大；≤860px 收成单列，封面在上、两条章节在下
 - 板块底色按新的交替顺序重排：案例（白）→ 能力（浅底）→ 教程（白）→ 为什么（浅底）→ …，导航新增「教程」
+- Hero 按钮组里加了第三个按钮「▶ 看视频教程」，夹在「看 24 个真实案例」与「安装 Skill」之间，一点直达教程区
+- 画廊头部右上角那组「24 组成图 / 24 组提示词 / 1 句输入」统计去掉 —— 标题与说明已经把这个数字讲清楚了
 
 **Video walkthrough**
 
@@ -53,6 +55,10 @@
 - Layout is a cover on the left and two chapter rows on the right; the cover ships as 1280px and 640px WebP
   (~287KB together) and lifts slightly on hover; below 860px it stacks into one column
 - Section band colours re-alternated for the new order, and "Tutorial" was added to the nav
+- A third hero button, "▶ Watch the walkthrough", sits between "See 24 real cases" and "Install the skill"
+  and jumps straight to the tutorial
+- The "24 images / 24 prompts / 1 line each" stat block at the top of the gallery is gone — the headline
+  and lede already say it
 
 ---
 

@@ -126,6 +126,12 @@
   .btn-primary:hover{background:#4a51ea;box-shadow:0 14px 30px -12px rgba(91,98,244,.85);}
   .btn-ghost{background:var(--surface);color:var(--text);border-color:var(--border-strong);}
   .btn-ghost:hover{border-color:var(--text);}
+  .btn-soft{background:var(--accent-soft);color:#4a51ea;border-color:#dcdcfa;}
+  .btn-soft:hover{background:#e5e5fd;border-color:#cbcbf7;box-shadow:0 10px 24px -16px rgba(91,98,244,.8);}
+  .btn-soft .pico{
+    display:inline-block;width:0;height:0;margin-right:7px;vertical-align:1.5px;
+    border-left:7px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;
+  }
 
 
   /* ---------- section head ---------- */
@@ -286,13 +292,7 @@
 
   /* ---------- gallery ---------- */
   #gallery{padding-top:12px;}
-  .gal-top{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:6px;}
-  .gal-stats{display:flex;gap:24px;flex-wrap:wrap;}
-  .gal-stats div{line-height:1.2;white-space:nowrap;}
-  .gal-stats b{font-size:19px;font-weight:700;letter-spacing:-.03em;color:var(--text);
-    font-variant-numeric:tabular-nums;margin-right:5px;}
-  .gal-stats span{font-size:12px;color:var(--muted2);letter-spacing:.01em;}
-  .order-note{margin:20px 0 -4px;font-size:13px;color:var(--muted2);line-height:1.65;}
+  .order-note{margin:26px 0 -4px;font-size:13px;color:var(--muted2);line-height:1.65;}
   .order-note b{color:var(--muted);font-weight:600;}
   .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 20px;margin-top:30px;}
   .ccard{display:block;padding:0;border:0;background:transparent;cursor:pointer;}
@@ -441,7 +441,9 @@
   }
   @media (max-width:620px){
     .cgrid{grid-template-columns:1fr;}
-    .gal-stats{gap:18px;}
+    .cta{gap:8px;margin-top:28px;}
+    .btn{padding:9px 15px;font-size:13.5px;}
+    .btn-soft .pico{margin-right:5px;border-left-width:6px;border-top-width:4px;border-bottom-width:4px;}
     #ghBtn{display:none;}
     .nav-in{padding:10px 16px;gap:10px;}
     .brand{font-size:14px;flex:1;min-width:0;}
@@ -488,6 +490,7 @@
     </p>
     <div class="cta">
       <a class="btn btn-primary" href="#gallery"><span class="i18n-zh">看 24 个真实案例</span><span class="i18n-en">See 24 real cases</span></a>
+      <a class="btn btn-soft" href="#tutorial"><span class="pico" aria-hidden="true"></span><span class="i18n-zh">看视频教程</span><span class="i18n-en">Watch the walkthrough</span></a>
       <a class="btn btn-ghost" href="#install"><span class="i18n-zh">安装 Skill</span><span class="i18n-en">Install the skill</span></a>
     </div>
   </div>
@@ -495,17 +498,10 @@
 </header>
 <section id="gallery" class="plain">
   <div class="wrap">
-    <div class="gal-top">
-      <div class="head" style="margin-bottom:0;">
-        <div class="kicker"><span class="i18n-zh">24 个真实案例</span><span class="i18n-en">24 real cases</span></div>
-        <h2><span class="i18n-zh">一句话进去，一张成图出来</span><span class="i18n-en">One line in, one finished illustration out</span></h2>
-        <p class="lede"><span class="i18n-zh">下面 24 张图，全部由本 skill 产出的提示词在 Krea 2 里直接生成，没有二次修饰。点开任意一张，看当时那句原始输入，和它换回来的完整提示词。</span><span class="i18n-en">All 24 images below were generated in Krea 2 straight from this skill's prompts — no retouching. Open any of them to see the original one-line input next to the full prompt it returned.</span></p>
-      </div>
-      <div class="gal-stats">
-        <div><b>24</b><span><span class="i18n-zh">组成图</span><span class="i18n-en">images</span></span></div>
-        <div><b>24</b><span><span class="i18n-zh">组提示词</span><span class="i18n-en">prompts</span></span></div>
-        <div><b>1</b><span><span class="i18n-zh">句输入</span><span class="i18n-en">line each</span></span></div>
-      </div>
+    <div class="head" style="margin-bottom:0;">
+      <div class="kicker"><span class="i18n-zh">24 个真实案例</span><span class="i18n-en">24 real cases</span></div>
+      <h2><span class="i18n-zh">一句话进去，一张成图出来</span><span class="i18n-en">One line in, one finished illustration out</span></h2>
+      <p class="lede"><span class="i18n-zh">下面 24 张图，全部由本 skill 产出的提示词在 Krea 2 里直接生成，没有二次修饰。点开任意一张，看当时那句原始输入，和它换回来的完整提示词。</span><span class="i18n-en">All 24 images below were generated in Krea 2 straight from this skill's prompts — no retouching. Open any of them to see the original one-line input next to the full prompt it returned.</span></p>
     </div>
     <p class="order-note">
       <span class="i18n-zh">前三张是挑出来的代表作；其余按<b>用户输入的词数</b>从少到多排列 —— 输入越短，扩写的落差越明显。中文按字计，英文按词计；点开任意一张可以看到原始输入。</span>
@@ -828,6 +824,7 @@
           <li>板块顺序重排：案例 → 能力 → 为什么 → 画风 → 安装 → 边界 → 工作流 → 更新日志</li>
           <li>首三张固定为千寻 × 龙猫、海绵宝宝 × 派大星、卡尔 · 气球屋，其余仍按输入词数排序</li>
           <li>新增<b>教程板块</b>（在能力之后）：B 站视频 09:38 的动漫角色参考工具、12:08 的安装与使用，点开直接从对应时间点开始播</li>
+          <li>Hero 按钮组中间加了「看视频教程」直达；画廊头部那组「24 组成图 / 组提示词 / 句输入」统计去掉</li>
         </ul>
         <ul class="i18n-en">
           <li>Added <b>24 real cases</b> — original input, the full prompt the skill returned, and the Krea 2 render, right under the hero</li>
@@ -837,6 +834,7 @@
           <li>Section order reshuffled: cases → features → why → styles → install → limits → workflow → changelog</li>
           <li>The first three cards are pinned: Chihiro &amp; Totoro, SpongeBob &amp; Patrick, Carl and the balloon house — the rest still follow input length</li>
           <li>New <b>tutorial section</b> right after the features: the character-reference tool at 09:38 and the install-and-use walkthrough at 12:08, each opening the Bilibili video at that exact timestamp</li>
+          <li>A "watch the walkthrough" button in the middle of the hero, and the gallery's image/prompt/input stat block is gone</li>
         </ul>
         <div class="caveat">
           <span class="i18n-zh">这是站点更新，技能本身仍是 1.6.0。图片在 Krea 2 中生成，提示词为 skill 原始返回，未做二次润色。</span>
