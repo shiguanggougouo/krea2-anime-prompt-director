@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Time AI · Krea 2 Anime Prompt Director</title>
-<meta name="description" content="把一句话变成完整的 Krea 2 动漫提示词：可辨识的角色身份、可绘制的场景重建、自动补全的经典世界观场景，并附忠实中文对照。">
+<meta name="description" content="把一句话变成完整的 Krea 2 动漫提示词：可辨识的角色身份、可绘制的场景重建、自动补全的经典世界观场景，并附忠实中文对照。24 个真实出图案例。">
+<link rel="preload" as="image" href="gallery/thumbs/01.webp">
+<script src="cases.js"></script>
 <style>
   :root{
     --bg:#ffffff;
@@ -50,7 +52,8 @@
     border-bottom:1px solid var(--border);
   }
   .nav-in{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;color:var(--text);white-space:nowrap;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;color:var(--text);white-space:nowrap;min-width:0;overflow:hidden;}
+  .brand-t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
   .brand:hover{text-decoration:none;}
   .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:none;}
   .nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px;color:var(--muted);}
@@ -210,6 +213,11 @@
   .entry ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--muted);}
   .entry li{margin-bottom:7px;}
   .entry li b{color:var(--text);}
+  kbd{
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1;
+    border:1px solid var(--border);border-bottom-width:2px;border-radius:5px;
+    padding:2px 5px;background:#fff;color:var(--muted);
+  }
   .caveat{
     margin-top:12px;padding:12px 16px;border-left:3px solid var(--accent);
     background:var(--bg-soft);border-radius:0 10px 10px 0;font-size:13.5px;color:var(--muted);
@@ -251,12 +259,133 @@
   .srcs a{color:var(--muted);font-size:13.5px;}
   .srcs a:hover{color:var(--accent);}
 
+  /* ---------- case strip (hero marquee) ---------- */
+  .strip{
+    margin-top:44px;overflow:hidden;position:relative;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  }
+  .strip-track{display:flex;gap:14px;width:max-content;animation:strip-slide 90s linear infinite;}
+  .strip:hover .strip-track{animation-play-state:paused;}
+  .strip a{display:block;flex:none;border-radius:12px;overflow:hidden;line-height:0;
+    box-shadow:0 10px 24px -14px rgba(20,18,40,.5);}
+  .strip img{height:130px;width:auto;display:block;transition:transform .45s ease;}
+  .strip a:hover img{transform:scale(1.05);}
+  @keyframes strip-slide{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion:reduce){.strip-track{animation:none;}}
+
+  /* ---------- gallery ---------- */
+  #gallery{padding-top:8px;}
+  .gal-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:8px;}
+  .gal-stats{display:flex;gap:26px;flex-wrap:wrap;}
+  .gal-stats div{line-height:1.2;}
+  .gal-stats b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;
+    background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .gal-stats span{font-size:12.5px;color:var(--muted2);}
+  .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
+  .ccard{
+    position:relative;display:block;padding:0;border:1px solid var(--border);border-radius:14px;
+    overflow:hidden;background:#0d0d13;cursor:pointer;aspect-ratio:16/9;
+    transition:box-shadow .3s ease,border-color .3s ease,transform .3s ease;
+  }
+  .ccard:hover{transform:translateY(-2px);}
+  .ccard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1),filter .3s;}
+  .ccard:hover img,.ccard:focus-visible img{transform:scale(1.05);}
+  .ccard:hover,.ccard:focus-visible{border-color:var(--tint,#6d5efc);box-shadow:0 18px 40px -20px var(--tint,#6d5efc);}
+  .ccard:focus-visible{outline:2px solid var(--tint,#6d5efc);outline-offset:2px;}
+  .ccard .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,12,0) 30%,rgba(6,6,12,.52) 62%,rgba(6,6,12,.93));}
+  .ccard .num{
+    position:absolute;top:10px;left:11px;z-index:2;
+    font:600 11.5px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;
+    color:#fff;background:rgba(10,10,16,.5);backdrop-filter:blur(8px);
+    padding:5px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.16);
+  }
+  .ccard .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:13px 15px;color:#fff;}
+  .ccard .cap h3{margin:0 0 2px;font-size:14.5px;font-weight:600;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:6px;text-shadow:0 1px 10px rgba(0,0,0,.55);}
+  .ccard .cap h3 .i18n-zh,.ccard .cap h3 .i18n-en{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .ccard .wk{font-size:12px;color:rgba(255,255,255,.66);text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  .ccard .dotmark{width:6px;height:6px;border-radius:50%;background:var(--tint,#6d5efc);flex:none;}
+
+  /* ---------- lightbox ---------- */
+  .lb{position:fixed;inset:0;z-index:120;display:none;background:rgba(9,9,14,.92);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:26px;overflow:auto;}
+  .lb.on{display:flex;align-items:center;justify-content:center;}
+  .lb-inner{
+    display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,.65fr);
+    width:100%;max-width:1320px;background:#fff;border-radius:18px;overflow:hidden;
+    box-shadow:0 50px 90px -40px #000;max-height:calc(100vh - 52px);
+  }
+  .lb-fig{margin:0;background:#0a0a10;display:flex;align-items:center;justify-content:center;min-height:0;min-width:0;}
+  .lb-fig img{width:100%;height:100%;max-height:calc(100vh - 52px);object-fit:contain;display:block;}
+  .lb-side{padding:26px 26px 22px;overflow:auto;max-height:calc(100vh - 52px);min-width:0;}
+  .lb-kicker{font:600 11.5px/1 ui-monospace,monospace;letter-spacing:.1em;color:var(--muted2);text-transform:uppercase;margin-bottom:12px;}
+  .lb-side h3{margin:0 0 3px;font-size:20px;letter-spacing:-.02em;}
+  .lb-work{font-size:13px;color:var(--muted2);margin:0 0 14px;}
+  .lb-sum{margin:0 0 20px;font-size:14px;color:var(--muted);padding-left:12px;border-left:2px solid var(--tint,#6d5efc);}
+  .lb-lab{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 7px;}
+  .lb-lab span{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);}
+  .lb-pre{
+    margin:0 0 18px;padding:13px 15px;background:var(--bg-soft);border:1px solid var(--border);
+    border-radius:11px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.8px;line-height:1.72;
+    color:#2c2c3c;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;
+    max-height:210px;overflow:auto;min-width:0;
+  }
+  .lb-pre.out{max-height:300px;}
+  .lb-btn{
+    padding:4px 11px;border-radius:8px;border:1px solid var(--border);background:#fff;
+    font-size:11.5px;font-family:inherit;color:var(--muted);cursor:pointer;
+  }
+  .lb-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .lb-nav{
+    position:fixed;top:50%;transform:translateY(-50%);z-index:130;
+    width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.22);
+    background:rgba(16,16,24,.55);color:#fff;font-size:20px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;line-height:1;
+  }
+  .lb-nav:hover{background:rgba(30,30,44,.85);}
+  .lb-prev{left:16px;}
+  .lb-next{right:16px;}
+  .lb-close{
+    position:fixed;top:16px;right:16px;z-index:130;width:40px;height:40px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.22);background:rgba(16,16,24,.55);color:#fff;
+    font-size:20px;cursor:pointer;line-height:1;
+  }
+  .lb-close:hover{background:rgba(30,30,44,.85);}
+  body.lb-open{overflow:hidden;}
+
+  @media (max-width:1080px){
+    .cgrid{grid-template-columns:repeat(2,1fr);}
+  }
   @media (max-width:860px){
     .g3{grid-template-columns:1fr;}
     .g2{grid-template-columns:1fr;}
     .compare{grid-template-columns:1fr;}
     .nav-links{display:none;}
     section{padding:56px 0;}
+    .lb{padding:0;}
+    .lb.on{align-items:stretch;}
+    .lb-inner{grid-template-columns:minmax(0,1fr);border-radius:0;max-height:none;height:100%;}
+    .lb-fig img{max-height:46vh;}
+    .lb-side{max-height:none;}
+    .lb-nav{top:auto;bottom:14px;transform:none;}
+    .lb-prev{left:calc(50% - 54px);}
+    .lb-next{right:calc(50% - 54px);}
+    .lb-close{top:10px;right:10px;}
+    .strip img{height:96px;}
+  }
+  @media (max-width:620px){
+    .cgrid{grid-template-columns:1fr;}
+    .gal-stats{gap:18px;}
+    #ghBtn{display:none;}
+    .nav-in{padding:10px 16px;gap:10px;}
+    .brand{font-size:14px;flex:1;min-width:0;}
+    .brand-t{max-width:150px;}
+    .brand .dot{width:22px;height:22px;}
+    .wrap{padding:0 18px;}
+    .strip img{height:84px;}
+    .terminal pre{white-space:pre-wrap;overflow-wrap:break-word;font-size:12px;padding:16px;line-height:1.75;}
+    .lb-side{padding-bottom:86px;}
   }
 </style>
 </head>
@@ -264,8 +393,9 @@
 
 <nav>
   <div class="nav-in">
-    <a class="brand" href="#top"><span class="dot"></span>Krea 2 Anime Prompt Director</a>
+    <a class="brand" href="#top"><span class="dot"></span><span class="brand-t">Krea 2 Anime Prompt Director</span></a>
     <div class="nav-links">
+      <a href="#gallery"><span class="i18n-zh">案例</span><span class="i18n-en">Cases</span></a>
       <a href="#why"><span class="i18n-zh">为什么</span><span class="i18n-en">Why</span></a>
       <a href="#features"><span class="i18n-zh">能力</span><span class="i18n-en">Features</span></a>
       <a href="#examples"><span class="i18n-zh">示例</span><span class="i18n-en">Examples</span></a>
@@ -293,8 +423,8 @@
       <span class="i18n-en">Not a generic prompt polisher. It anchors character identity in visible evidence, rebuilds named locations into drawable scenes, fills in a canon setting when you leave the environment open, and returns a faithful Chinese translation alongside.</span>
     </p>
     <div class="cta">
-      <a class="btn btn-primary" href="#install"><span class="i18n-zh">安装 Skill</span><span class="i18n-en">Install the skill</span></a>
-      <a class="btn btn-ghost" href="#examples"><span class="i18n-zh">看看效果</span><span class="i18n-en">See the output</span></a>
+      <a class="btn btn-primary" href="#gallery"><span class="i18n-zh">看 24 个真实案例</span><span class="i18n-en">See 24 real cases</span></a>
+      <a class="btn btn-ghost" href="#install"><span class="i18n-zh">安装 Skill</span><span class="i18n-en">Install the skill</span></a>
     </div>
 
     <div class="terminal">
@@ -322,7 +452,30 @@ Village, casually reading a small orange-covered paperback...
 绿色上忍马甲。他侧坐在木叶村一处弧形瓦顶的屋脊上……</pre>
     </div>
   </div>
+  <div class="strip"><div class="strip-track" id="stripTrack"></div></div>
 </header>
+
+<section id="gallery" class="plain">
+  <div class="wrap">
+    <div class="gal-top">
+      <div class="head" style="margin-bottom:0;">
+        <div class="kicker"><span class="i18n-zh">24 个真实案例</span><span class="i18n-en">24 real cases</span></div>
+        <h2><span class="i18n-zh">一句话进去，一张成图出来</span><span class="i18n-en">One line in, one finished illustration out</span></h2>
+        <p class="lede"><span class="i18n-zh">下面 24 张图，全部由本 skill 产出的提示词在 Krea 2 里直接生成，没有二次修饰。点开任意一张，看当时那句原始输入，和它换回来的完整提示词。</span><span class="i18n-en">All 24 images below were generated in Krea 2 straight from this skill's prompts — no retouching. Open any of them to see the original one-line input next to the full prompt it returned.</span></p>
+      </div>
+      <div class="gal-stats">
+        <div><b>24</b><span><span class="i18n-zh">组成图</span><span class="i18n-en">images</span></span></div>
+        <div><b>24</b><span><span class="i18n-zh">组提示词</span><span class="i18n-en">prompts</span></span></div>
+        <div><b>1</b><span><span class="i18n-zh">句输入</span><span class="i18n-en">line each</span></span></div>
+      </div>
+    </div>
+    <div class="cgrid" id="caseGrid"></div>
+    <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center;">
+      <span class="i18n-zh">图片在 Krea 2 中生成；提示词为 skill 原始返回。点任意一张看完整内容，也可以用 ← → 翻页。</span>
+      <span class="i18n-en">Images rendered in Krea 2; prompts are the skill's unedited output. Click any case for the full text — arrow keys page through them.</span>
+    </p>
+  </div>
+</section>
 
 <section id="why" class="plain">
   <div class="wrap">
@@ -559,6 +712,27 @@ The low camera angle places the square ring across the lower half of the frame, 
     </div>
 
     <div class="log">
+      <div class="entry">
+        <div class="entry-top">
+          <span class="ver">Site</span><span class="date">2026-10-20</span>
+          <span class="tag"><span class="i18n-zh">案例画廊上线</span><span class="i18n-en">Case gallery</span></span>
+        </div>
+        <ul class="i18n-zh">
+          <li>新增 <b>24 个真实案例</b>：原始输入、skill 返回的完整提示词、Krea 2 成图，位置就在 Hero 正下方</li>
+          <li>点开任意案例看大图与全文，支持 <kbd>←</kbd> <kbd>→</kbd> 翻页、<kbd>Esc</kbd> 关闭</li>
+          <li>每个案例有独立链接（如 <code>#case-7</code>），可直接分享单张</li>
+        </ul>
+        <ul class="i18n-en">
+          <li>Added <b>24 real cases</b> — original input, the full prompt the skill returned, and the Krea 2 render, right under the hero</li>
+          <li>Open any case for the full image and text; <kbd>←</kbd> <kbd>→</kbd> page through, <kbd>Esc</kbd> closes</li>
+          <li>Every case has its own shareable link, e.g. <code>#case-7</code></li>
+        </ul>
+        <div class="caveat">
+          <span class="i18n-zh">这是站点更新，技能本身仍是 1.6.0。图片在 Krea 2 中生成，提示词为 skill 原始返回，未做二次润色。</span>
+          <span class="i18n-en">This is a site update; the skill itself is still 1.6.0. Images were rendered in Krea 2, and the prompts are the skill's unedited output.</span>
+        </div>
+      </div>
+
       <div class="entry">
         <div class="entry-top">
           <span class="ver">1.6.0</span><span class="date">2026-10-19</span>
@@ -805,6 +979,34 @@ The low camera angle places the square ring across the lower half of the frame, 
   </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Case detail">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next">›</button>
+  <div class="lb-inner" id="lbInner">
+    <figure class="lb-fig"><img id="lbImg" alt=""></figure>
+    <div class="lb-side">
+      <div class="lb-kicker" id="lbKicker"></div>
+      <h3>
+        <span class="i18n-zh" id="lbTitleZh"></span>
+        <span class="i18n-en" id="lbTitleEn"></span>
+      </h3>
+      <p class="lb-work">
+        <span class="i18n-zh" id="lbWorkZh"></span>
+        <span class="i18n-en" id="lbWorkEn"></span>
+      </p>
+      <p class="lb-sum i18n-zh" id="lbSum"></p>
+      <div class="lb-lab"><span><span class="i18n-zh">你输入</span><span class="i18n-en">Input</span></span></div>
+      <pre class="lb-pre" id="lbInput"></pre>
+      <div class="lb-lab">
+        <span>POSITIVE</span>
+        <button class="lb-btn" id="lbCopy" type="button"><span class="i18n-zh">复制</span><span class="i18n-en">Copy</span></button>
+      </div>
+      <pre class="lb-pre out" id="lbOut"></pre>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   var GH = "https://github.com/shiguanggougouo/krea2-anime-prompt-director";
@@ -884,6 +1086,153 @@ The low camera angle places the square ring across the lower half of the frame, 
       }
     });
   });
+
+  /* ---------- case gallery ---------- */
+  var CASES = window.CASES || [];
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function pad2(n){ return (n < 10 ? "0" : "") + n; }
+
+  var grid = document.getElementById("caseGrid");
+  var stripTrack = document.getElementById("stripTrack");
+
+  if (CASES.length) {
+    if (grid) {
+      grid.innerHTML = CASES.map(function(c, i){
+        return '<div class="ccard" role="button" tabindex="0" data-i="' + i + '" style="--tint:' + c.tint + '" aria-label="' + esc(c.titleEn) + '">' +
+          '<img src="' + c.thumb + '" alt="' + esc(c.titleEn) + '" loading="' + (i < 6 ? "eager" : "lazy") + '" decoding="async">' +
+          '<span class="shade"></span>' +
+          '<span class="num">' + pad2(c.n) + '</span>' +
+          '<span class="cap"><h3><i class="dotmark"></i>' +
+            '<span class="i18n-zh">' + esc(c.titleZh) + '</span>' +
+            '<span class="i18n-en">' + esc(c.titleEn) + '</span>' +
+          '</h3><span class="wk">' +
+            '<span class="i18n-zh">' + esc(c.work) + '</span>' +
+            '<span class="i18n-en">' + esc(c.workEn) + '</span>' +
+          '</span></span>' +
+        '</div>';
+      }).join("");
+
+      grid.querySelectorAll(".ccard img").forEach(function(img){
+        img.addEventListener("error", function(){
+          this.style.background = "#15151f";
+        });
+      });
+    }
+
+    if (stripTrack) {
+      var seq = CASES.slice(0, 12).map(function(c, i){
+        var mini = c.thumb.replace("gallery/thumbs/", "gallery/mini/");
+        return '<a href="#gallery" data-i="' + i + '" aria-label="' + esc(c.titleEn) + '"><img src="' + mini + '" alt="" loading="lazy" decoding="async"></a>';
+      }).join("");
+      stripTrack.innerHTML = seq + seq;
+    }
+  }
+
+  /* ---------- lightbox ---------- */
+  var lb = document.getElementById("lb");
+  var lbImg = document.getElementById("lbImg");
+  var lbInner = document.getElementById("lbInner");
+  var lbIndex = 0;
+  var lastFocus = null;
+
+  function openCase(i){
+    if (!lb || !CASES.length) return;
+    lbIndex = (i + CASES.length) % CASES.length;
+    var c = CASES[lbIndex];
+    lastFocus = document.activeElement;
+    lbImg.src = c.img;
+    lbImg.alt = c.titleEn;
+    document.getElementById("lbKicker").textContent = "CASE " + pad2(c.n) + " / " + CASES.length;
+    document.getElementById("lbTitleZh").textContent = c.titleZh;
+    document.getElementById("lbTitleEn").textContent = c.titleEn;
+    document.getElementById("lbWorkZh").textContent = c.work;
+    document.getElementById("lbWorkEn").textContent = c.workEn;
+    document.getElementById("lbSum").textContent = c.sumZh;
+    document.getElementById("lbInput").textContent = c.input;
+    document.getElementById("lbOut").textContent = c.output;
+    lbInner.style.setProperty("--tint", c.tint);
+    lb.classList.add("on");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lb-open");
+    document.getElementById("lbClose").focus();
+    if (history.replaceState && location.hash !== "#case-" + c.n) {
+      history.replaceState(null, "", "#case-" + c.n);
+    }
+  }
+  function closeCase(){
+    if (!lb) return;
+    lb.classList.remove("on");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lb-open");
+    if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function stepCase(d){ openCase(lbIndex + d); }
+
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    var card = t && t.closest ? t.closest(".ccard") : null;
+    if (card) { openCase(parseInt(card.getAttribute("data-i"), 10)); return; }
+    var thumbLink = t && t.closest ? t.closest(".strip a[data-i]") : null;
+    if (thumbLink) {
+      e.preventDefault();
+      openCase(parseInt(thumbLink.getAttribute("data-i"), 10));
+    }
+  });
+  document.addEventListener("keydown", function(e){
+    var t = e.target;
+    var card = t && t.closest ? t.closest(".ccard") : null;
+    if (card && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      openCase(parseInt(card.getAttribute("data-i"), 10));
+      return;
+    }
+    if (!lb || !lb.classList.contains("on")) return;
+    if (e.key === "Escape") { closeCase(); }
+    else if (e.key === "ArrowLeft") { stepCase(-1); }
+    else if (e.key === "ArrowRight") { stepCase(1); }
+  });
+  if (lb) {
+    document.getElementById("lbClose").addEventListener("click", closeCase);
+    document.getElementById("lbPrev").addEventListener("click", function(){ stepCase(-1); });
+    document.getElementById("lbNext").addEventListener("click", function(){ stepCase(1); });
+    lb.addEventListener("click", function(e){ if (e.target === lb) closeCase(); });
+    document.getElementById("lbCopy").addEventListener("click", function(){
+      var c = CASES[lbIndex];
+      if (!c) return;
+      var btn = this;
+      var done = function(){ btn.textContent = "✓"; setTimeout(function(){ btn.innerHTML = '<span class="i18n-zh">复制</span><span class="i18n-en">Copy</span>'; }, 1300); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(c.output).then(done, function(){});
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = c.output; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch(err){}
+        document.body.removeChild(ta);
+      }
+    });
+
+    /* deep link: #case-7 opens that case directly and is shareable */
+    var hm = (location.hash || "").match(/^#case-(\d+)$/);
+    if (hm) {
+      var direct = parseInt(hm[1], 10) - 1;
+      if (direct >= 0 && direct < CASES.length) openCase(direct);
+    }
+    window.addEventListener("hashchange", function(){
+      var m = (location.hash || "").match(/^#case-(\d+)$/);
+      if (m) {
+        var i = parseInt(m[1], 10) - 1;
+        if (i >= 0 && i < CASES.length) openCase(i);
+      } else if (lb.classList.contains("on")) {
+        lb.classList.remove("on");
+        lb.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("lb-open");
+      }
+    });
+  }
 })();
 </script>
 </body>

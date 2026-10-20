@@ -100,6 +100,8 @@ paperback...
 | `references/catalog-workflow.md` | 如何取用 Krea2 Character Catalog 而不过度声称可靠性 |
 | `references/source-notes.md` | 来源链接、来源可推得结论、核实边界 |
 | `docs/index.html` | 项目落地页（GitHub Pages 源，含中英文切换） |
+| `docs/cases.js` | 24 个案例的数据：原始输入、返回的提示词、双语标题与摘要 |
+| `docs/gallery/` | 24 张成图（1600px 大图、760px 缩略、440px 滚动带） |
 | `CHANGELOG.md` | 从 1.0.0 到 1.6.0 的版本历史 |
 | `README.md` | 英文版 README（默认） |
 

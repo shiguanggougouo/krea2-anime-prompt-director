@@ -102,6 +102,8 @@ Version history lives in [CHANGELOG.md](CHANGELOG.md) — 1.0.0 through 1.6.0, e
 | `references/catalog-workflow.md` | How to use Krea2 Character Catalog entries without overstating reliability |
 | `references/source-notes.md` | Source URLs, source-derived findings, verification boundaries |
 | `docs/index.html` | Project landing page (GitHub Pages source, Chinese/English toggle) |
+| `docs/cases.js` | Data for the 24-case gallery — each input, the prompt returned, and bilingual captions |
+| `docs/gallery/` | 24 rendered results (`1600px` full, `760px` thumbs, `440px` strips) |
 | `CHANGELOG.md` | Version history from 1.0.0 to 1.6.0 |
 | `README.zh-CN.md` | Chinese edition of this README |
 

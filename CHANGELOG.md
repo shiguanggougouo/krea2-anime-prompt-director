@@ -4,6 +4,28 @@
 
 ---
 
+## Site — 2026-10-20
+
+**落地页新增 24 个真实案例画廊**（网页更新，非技能版本变更）
+
+- 新增 **24 组真实案例**：原始输入 + skill 返回的完整 POSITIVE 提示词 + Krea 2 成图
+- 画廊位于 Hero 正下方，成为页面核心：3 列卡片（移动端 1 列）、滚动带横向预览、点击开灯箱
+- 灯箱内含大图、双语标题、作品名、中文画面摘要、完整输入与输出，输出可一键复制
+- 支持 `←` `→` 翻页、`Esc` 关闭，以及 `#case-7` 这样的深链接直接分享单个案例
+- 图片按用途分三档压缩：1600px 大图（灯箱）、760px 缩略（网格）、440px 迷你（滚动带）
+- 卡片 hover 边框光晕取自每张图自身的主色
+
+**24-case gallery**
+
+- 24 real cases: the original one-line input, the full POSITIVE prompt the skill returned, and the Krea 2 render
+- The gallery sits right under the hero as the page's centrepiece: 3-column cards, a marquee strip, and a lightbox on click
+- Lightbox shows the full image, bilingual title, work name, a Chinese summary, and copyable input and output
+- Arrow-key paging, Esc to close, and shareable deep links such as `#case-7`
+- Three image sizes: 1600px for the lightbox, 760px for the grid, 440px for the strip
+- Each card's hover glow is sampled from its own image
+
+---
+
 ## 1.6.0 — 2026-10-19
 
 **动作要让人记住，多人要有交流**
