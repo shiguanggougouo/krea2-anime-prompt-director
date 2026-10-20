@@ -8,6 +8,7 @@
 [![English](https://img.shields.io/badge/lang-English-111827?style=flat-square)](README.md)
 [![简体中文](https://img.shields.io/badge/lang-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-7C5CFF?style=flat-square)](README.zh-CN.md)
 [![中文页面](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E9%A1%B5%E9%9D%A2-GitHub%20Pages-22C55E?style=flat-square)](https://shiguanggougouo.github.io/krea2-anime-prompt-director/)
+[![视频教程](https://img.shields.io/badge/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B-Bilibili-FB7299?style=flat-square)](https://www.bilibili.com/video/BV1neJf6XEdA/?t=728&vd_source=a7826b5703f20f1ca10cf2ddd4fba044)
 
 A reusable agent skill that turns a short Chinese or English idea into a **complete, Krea 2-ready anime prompt** — with a faithful Chinese translation alongside it.
 
@@ -20,6 +21,8 @@ It does five things a generic "prompt enhancer" does not:
 5. **Stages action and interaction** — one decisive instant with intent, weight, direction of force and a visible consequence in the scene; with several characters, a readable exchange of who initiates, who responds, and where eyelines and contact land. Never "dynamic pose" or "fighting pose."
 
 It is grounded in the two official Krea anime guides plus an evidence-aware workflow for the community Krea2 Character Catalog.
+
+▶ **Video walkthrough (Bilibili, Chinese):** [installing and using this skill — 12:08](https://www.bilibili.com/video/BV1neJf6XEdA/?t=728&vd_source=a7826b5703f20f1ca10cf2ddd4fba044) · [the anime character reference tool the 24 cases were cast with — 09:38](https://www.bilibili.com/video/BV1neJf6XEdA/?t=578&vd_source=a7826b5703f20f1ca10cf2ddd4fba044)
 
 ---
 

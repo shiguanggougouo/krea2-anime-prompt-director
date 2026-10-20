@@ -5,7 +5,7 @@
 ![Format](https://img.shields.io/badge/format-Agent%20Skill-0EA5E9?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-22C55E?style=flat-square)
 
-**[English](README.md) · 简体中文 · [在线页面 →](https://shiguanggougouo.github.io/krea2-anime-prompt-director/)**
+**[English](README.md) · 简体中文 · [在线页面 →](https://shiguanggougouo.github.io/krea2-anime-prompt-director/) · [视频教程（12:08 安装与使用）→](https://www.bilibili.com/video/BV1neJf6XEdA/?t=728&vd_source=a7826b5703f20f1ca10cf2ddd4fba044)**
 
 一个可复用的 Agent 技能：把一句中文或英文的简短想法，扩写成**完整、可直接投喂 Krea 2 的动漫提示词**，并附一份忠实的中文对照。
 
@@ -18,6 +18,8 @@
 5. **动作和互动真的有戏** —— 只定格一个决定性瞬间：意图、重心与支撑、发力方向，以及环境里看得见的后果。多人画面则是可读取的交流：谁先动手、谁回应、视线与接触点落在哪里。不会写「动态姿势」「战斗姿势」，也不会让几个角色并排各摆各的。
 
 依据来自 Krea 官方的两篇动漫指南，加上一套对社区 Krea2 Character Catalog 保持证据意识的取用流程。
+
+▶ **视频教程（B 站）**：[这个 skill 的安装与使用 —— 12:08](https://www.bilibili.com/video/BV1neJf6XEdA/?t=728&vd_source=a7826b5703f20f1ca10cf2ddd4fba044) · [24 个案例选角用的动漫角色参考工具 —— 09:38](https://www.bilibili.com/video/BV1neJf6XEdA/?t=578&vd_source=a7826b5703f20f1ca10cf2ddd4fba044)
 
 ---
 

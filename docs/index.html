@@ -316,6 +316,55 @@
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .ccard:hover .meta h3{color:var(--accent);}
 
+  /* ---------- tutorial ---------- */
+  .tut{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:24px;margin-top:34px;align-items:stretch;}
+  .tut-cover{
+    position:relative;display:block;border-radius:16px;overflow:hidden;background:var(--bg-soft);
+    box-shadow:var(--shadow-sm);
+    transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease;
+  }
+  .tut-cover img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;display:block;
+    transition:transform .7s cubic-bezier(.2,.7,.3,1);}
+  .tut-cover:hover,.tut-cover:focus-visible{transform:translateY(-3px);box-shadow:0 28px 54px -32px rgba(18,20,28,.55);outline:none;}
+  .tut-cover:hover img{transform:scale(1.03);}
+  .tut-play{
+    position:absolute;inset:0;margin:auto;width:62px;height:62px;border-radius:50%;
+    background:rgba(255,255,255,.94);box-shadow:0 14px 32px -10px rgba(10,12,20,.5);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .3s cubic-bezier(.2,.7,.3,1);
+  }
+  .tut-play::before{
+    content:"";display:block;width:0;height:0;margin-left:5px;
+    border-left:17px solid #16161c;border-top:10.5px solid transparent;border-bottom:10.5px solid transparent;
+  }
+  .tut-cover:hover .tut-play{transform:scale(1.09);}
+  .tut-chip{
+    position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;
+    padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.01em;
+    color:#fff;background:rgba(16,16,22,.62);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  }
+  .tut-list{display:flex;flex-direction:column;gap:14px;}
+  .tut-item{
+    display:flex;align-items:center;gap:16px;flex:1;min-height:0;
+    padding:22px 20px;border:1px solid var(--border);border-radius:14px;background:var(--surface);
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .tut-item:hover,.tut-item:focus-visible{
+    transform:translateY(-2px);border-color:var(--border-strong);box-shadow:var(--shadow-md);outline:none;
+  }
+  .tut-time{
+    flex:none;font:600 12.5px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.02em;
+    font-variant-numeric:tabular-nums;color:var(--accent);background:var(--accent-soft);
+    padding:7px 9px;border-radius:8px;
+  }
+  .tut-body{flex:1;min-width:0;}
+  .tut-h{display:block;font-size:15.5px;font-weight:650;letter-spacing:-.02em;color:var(--text);margin-bottom:6px;}
+  .tut-p{display:block;font-size:13.5px;line-height:1.68;color:var(--muted);}
+  .tut-go{flex:none;color:var(--muted2);font-size:14px;line-height:1;transition:color .25s ease,transform .25s ease;}
+  .tut-item:hover .tut-go{color:var(--accent);transform:translate(2px,-2px);}
+  .tut-note{margin:20px 0 0;font-size:12.5px;color:var(--muted2);line-height:1.7;}
+
   /* ---------- lightbox ---------- */
   .lb{position:fixed;inset:0;z-index:120;display:none;background:rgba(22,22,28,.86);
     -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:28px;overflow:auto;}
@@ -368,8 +417,12 @@
 
   @media (max-width:1080px){
     .cgrid{grid-template-columns:repeat(2,1fr);}
+    .tut{gap:18px;}
+    .tut-item{padding:18px 16px;}
   }
   @media (max-width:860px){
+    .tut{grid-template-columns:minmax(0,1fr);margin-top:26px;}
+    .tut-list{flex-direction:column;}
     .g3{grid-template-columns:1fr;}
     .g2{grid-template-columns:1fr;}
     .compare{grid-template-columns:1fr;}
@@ -408,6 +461,7 @@
     <div class="nav-links">
       <a href="#gallery"><span class="i18n-zh">案例</span><span class="i18n-en">Cases</span></a>
       <a href="#features"><span class="i18n-zh">能力</span><span class="i18n-en">Features</span></a>
+      <a href="#tutorial"><span class="i18n-zh">教程</span><span class="i18n-en">Tutorial</span></a>
       <a href="#why"><span class="i18n-zh">为什么</span><span class="i18n-en">Why</span></a>
       <a href="#install"><span class="i18n-zh">安装</span><span class="i18n-en">Install</span></a>
       <a href="#how"><span class="i18n-zh">工作流</span><span class="i18n-en">Workflow</span></a>
@@ -520,7 +574,53 @@
     </div>
   </div>
 </section>
-<section id="why">
+<section id="tutorial">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker"><span class="i18n-zh">视频教程</span><span class="i18n-en">Walkthrough</span></div>
+      <h2><span class="i18n-zh">怎么装、怎么用，看这两段</span><span class="i18n-en">How it is installed and used, on video</span></h2>
+      <p class="lede">
+        <span class="i18n-zh">整条视频里有两段和本页直接相关。<b>09:38</b> 讲动漫角色参考工具 —— 24 个案例里的角色就是从那里挑出来，再交给这个 skill 的；<b>12:08</b> 从放文件夹开始把这个 skill 装好，然后当场跑一遍完整流程。</span>
+        <span class="i18n-en">Two chapters in this video matter here. At <b>09:38</b> it covers the anime character reference tool — the characters in the 24 cases above were cast there, then handed to this skill. At <b>12:08</b> it installs the skill from scratch and runs a full pass live.</span>
+      </p>
+    </div>
+    <div class="tut">
+      <a class="tut-cover" href="https://www.bilibili.com/video/BV1neJf6XEdA/?t=728&vd_source=a7826b5703f20f1ca10cf2ddd4fba044" target="_blank" rel="noopener"
+         aria-label="看到 B 站视频 12:08 安装与使用 / Watch the install chapter at 12:08 on Bilibili">
+        <img src="media/tutorial-cover.webp"
+             srcset="media/tutorial-cover-sm.webp 640w, media/tutorial-cover.webp 1280w"
+             sizes="(max-width: 860px) 100vw, 620px"
+             alt="Krea 2 完全体（下）视频封面：千寻与龙猫站在雨后的林间"
+             loading="lazy" decoding="async">
+        <span class="tut-play" aria-hidden="true"></span>
+        <span class="tut-chip"><span class="i18n-zh">12:08 · 安装与使用</span><span class="i18n-en">12:08 · Install &amp; use</span></span>
+      </a>
+      <div class="tut-list">
+        <a class="tut-item" href="https://www.bilibili.com/video/BV1neJf6XEdA/?t=578&vd_source=a7826b5703f20f1ca10cf2ddd4fba044" target="_blank" rel="noopener">
+          <span class="tut-time">09:38</span>
+          <span class="tut-body">
+            <span class="tut-h"><span class="i18n-zh">动漫角色参考工具</span><span class="i18n-en">Anime character reference tool</span></span>
+            <span class="tut-p"><span class="i18n-zh">上面 24 个案例的选角都出自这一步：先在这个工具里定下角色，再把名字交给 skill —— 角色定了，它才知道该抓哪几个可见特征。</span><span class="i18n-en">Every character in the 24 cases above was cast here. Fix the character in this tool, hand the name to the skill — once the character is settled, it knows which visible cues to lock onto.</span></span>
+          </span>
+          <span class="tut-go" aria-hidden="true">&#8599;</span>
+        </a>
+        <a class="tut-item" href="https://www.bilibili.com/video/BV1neJf6XEdA/?t=728&vd_source=a7826b5703f20f1ca10cf2ddd4fba044" target="_blank" rel="noopener">
+          <span class="tut-time">12:08</span>
+          <span class="tut-body">
+            <span class="tut-h"><span class="i18n-zh">这个 skill 的安装与使用</span><span class="i18n-en">Installing and using this skill</span></span>
+            <span class="tut-p"><span class="i18n-zh">从把文件夹放进 skills 目录，到写下第一句输入、拿回完整提示词，中间不跳步。</span><span class="i18n-en">From dropping the folder into your skills directory to typing the first line and getting the full prompt back — no steps skipped.</span></span>
+          </span>
+          <span class="tut-go" aria-hidden="true">&#8599;</span>
+        </a>
+      </div>
+    </div>
+    <p class="tut-note">
+      <span class="i18n-zh">两段都在 B 站，点开后从对应的时间点开始播放。视频标题：Krea 2 完全体（下）· 最强动漫 skill。</span>
+      <span class="i18n-en">Both open on Bilibili and start at the matching timestamp. The video is “Krea 2 完全体 (Part 2) — the strongest anime skill”.</span>
+    </p>
+  </div>
+</section>
+<section id="why" class="band">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">为什么</span><span class="i18n-en">Why</span></div>
@@ -571,7 +671,7 @@
     </div>
   </div>
 </section>
-<section id="styles" class="band">
+<section id="styles">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">画风锚点</span><span class="i18n-en">Style anchors</span></div>
@@ -588,7 +688,7 @@
     </div>
   </div>
 </section>
-<section id="install">
+<section id="install" class="band">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">安装</span><span class="i18n-en">Install</span></div>
@@ -633,7 +733,7 @@
     </div>
   </div>
 </section>
-<section id="limits" class="band">
+<section id="limits">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">诚实边界</span><span class="i18n-en">Honest limits</span></div>
@@ -659,7 +759,7 @@
     </div>
   </div>
 </section>
-<section id="how">
+<section id="how" class="band">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">工作流</span><span class="i18n-en">Workflow</span></div>
@@ -706,7 +806,7 @@
     </ol>
   </div>
 </section>
-<section id="changelog" class="band">
+<section id="changelog">
   <div class="wrap">
     <div class="head">
       <div class="kicker"><span class="i18n-zh">更新日志</span><span class="i18n-en">Changelog</span></div>
@@ -727,6 +827,7 @@
           <li>整站视觉改版：暖白底、图片优先，卡片编号与图下小字整条去掉，旧版日志折叠收起</li>
           <li>板块顺序重排：案例 → 能力 → 为什么 → 画风 → 安装 → 边界 → 工作流 → 更新日志</li>
           <li>首三张固定为千寻 × 龙猫、海绵宝宝 × 派大星、卡尔 · 气球屋，其余仍按输入词数排序</li>
+          <li>新增<b>教程板块</b>（在能力之后）：B 站视频 09:38 的动漫角色参考工具、12:08 的安装与使用，点开直接从对应时间点开始播</li>
         </ul>
         <ul class="i18n-en">
           <li>Added <b>24 real cases</b> — original input, the full prompt the skill returned, and the Krea 2 render, right under the hero</li>
@@ -735,6 +836,7 @@
           <li>Visual refresh: warm off-white, image-first cards, both the index and the small caption line gone, older entries folded</li>
           <li>Section order reshuffled: cases → features → why → styles → install → limits → workflow → changelog</li>
           <li>The first three cards are pinned: Chihiro &amp; Totoro, SpongeBob &amp; Patrick, Carl and the balloon house — the rest still follow input length</li>
+          <li>New <b>tutorial section</b> right after the features: the character-reference tool at 09:38 and the install-and-use walkthrough at 12:08, each opening the Bilibili video at that exact timestamp</li>
         </ul>
         <div class="caveat">
           <span class="i18n-zh">这是站点更新，技能本身仍是 1.6.0。图片在 Krea 2 中生成，提示词为 skill 原始返回，未做二次润色。</span>

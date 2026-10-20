@@ -4,7 +4,7 @@
 
 ---
 
-## Site — 2026-10-20
+## Site — 2026-10-20（案例画廊 / case gallery）
 
 **落地页新增 24 个真实案例画廊**（网页更新，非技能版本变更）
 
@@ -31,6 +31,28 @@
 - Each card's hover glow is sampled from its own image
 - **Default order is by input length, shortest first** (CJK per character, everything else per word);
   the input length is shown on each card and in the lightbox, paging follows the on-screen order, and `#case-N` still points at a fixed case
+
+---
+
+## Site — 2026-10-20（教程板块 / tutorial section）
+
+**新增「视频教程」板块，放在能力之后**
+
+- 收录 B 站视频《Krea 2 完全体（下）》里与本 skill 直接相关的两段，各自带时间戳，点开直接从该处播放
+- `09:38` 动漫角色参考工具 —— 页面上 24 个案例的选角都出自这一步，先定角色，再把名字交给 skill
+- `12:08` 这个 skill 的安装与使用 —— 从放进 skills 目录到写出第一句输入、拿回完整提示词
+- 版面为「左封面 + 右两条章节」：封面即视频封面（1280px / 640px 两档 WebP，共 ~287KB），
+  悬停轻抬 + 播放键放大；≤860px 收成单列，封面在上、两条章节在下
+- 板块底色按新的交替顺序重排：案例（白）→ 能力（浅底）→ 教程（白）→ 为什么（浅底）→ …，导航新增「教程」
+
+**Video walkthrough**
+
+- Adds a walkthrough section right after the features, collecting the two chapters of the Bilibili video
+  that are relevant here, each linked at its exact timestamp
+- `09:38` the anime character reference tool every case was cast with; `12:08` installing and using this skill
+- Layout is a cover on the left and two chapter rows on the right; the cover ships as 1280px and 640px WebP
+  (~287KB together) and lifts slightly on hover; below 860px it stacks into one column
+- Section band colours re-alternated for the new order, and "Tutorial" was added to the nav
 
 ---
 
