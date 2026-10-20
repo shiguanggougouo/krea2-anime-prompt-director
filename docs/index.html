@@ -315,10 +315,6 @@
     letter-spacing:-.02em;color:var(--text);
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .ccard .wk{font-size:12.5px;color:var(--muted2);}
-  .ccard .num{
-    font:600 10.5px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;
-    color:var(--muted2);margin-right:6px;
-  }
   .ccard:hover .meta h3{color:var(--accent);}
 
   /* ---------- lightbox ---------- */
@@ -459,8 +455,8 @@
       </div>
     </div>
     <p class="order-note">
-      <span class="i18n-zh">默认按<b>用户输入的词数</b>从少到多排列 —— 输入越短，扩写的落差越明显。中文按字计，英文按词计；每张卡片下方标出了它的输入长度。</span>
-      <span class="i18n-en">Sorted by <b>how much the user typed</b>, shortest first — the shorter the input, the bigger the jump. CJK counts per character, everything else per word; each card shows its input length.</span>
+      <span class="i18n-zh">前三张是挑出来的代表作；其余按<b>用户输入的词数</b>从少到多排列 —— 输入越短，扩写的落差越明显。中文按字计，英文按词计；每张卡片下方标出了它的输入长度。</span>
+      <span class="i18n-en">The first three are hand-picked; the rest are sorted by <b>how much the user typed</b>, shortest first — the shorter the input, the bigger the jump. CJK counts per character, everything else per word; each card shows its input length.</span>
     </p>
     <div class="cgrid" id="caseGrid"></div>
     <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center;">
@@ -729,15 +725,17 @@
           <li>新增 <b>24 个真实案例</b>：原始输入、skill 返回的完整提示词、Krea 2 成图，位置就在 Hero 正下方</li>
           <li>点开任意案例看大图与全文，支持 <kbd>←</kbd> <kbd>→</kbd> 翻页、<kbd>Esc</kbd> 关闭</li>
           <li>每个案例有独立链接（如 <code>#case-7</code>），可直接分享单张</li>
-          <li>整站视觉改版：暖白底、图片优先，编号移出画面，旧版日志折叠收起</li>
+          <li>整站视觉改版：暖白底、图片优先，卡片编号整个去掉，旧版日志折叠收起</li>
           <li>板块顺序重排：案例 → 能力 → 为什么 → 画风 → 安装 → 边界 → 工作流 → 更新日志</li>
+          <li>首三张固定为千寻 × 龙猫、海绵宝宝 × 派大星、卡尔 · 气球屋，其余仍按输入词数排序</li>
         </ul>
         <ul class="i18n-en">
           <li>Added <b>24 real cases</b> — original input, the full prompt the skill returned, and the Krea 2 render, right under the hero</li>
           <li>Open any case for the full image and text; <kbd>←</kbd> <kbd>→</kbd> page through, <kbd>Esc</kbd> closes</li>
           <li>Every case has its own shareable link, e.g. <code>#case-7</code></li>
-          <li>Visual refresh: warm off-white, image-first cards, the index moved off the artwork, older entries folded</li>
+          <li>Visual refresh: warm off-white, image-first cards, the card index dropped entirely, older entries folded</li>
           <li>Section order reshuffled: cases → features → why → styles → install → limits → workflow → changelog</li>
+          <li>The first three cards are pinned: Chihiro &amp; Totoro, SpongeBob &amp; Patrick, Carl and the balloon house — the rest still follow input length</li>
         </ul>
         <div class="caveat">
           <span class="i18n-zh">这是站点更新，技能本身仍是 1.6.0。图片在 Krea 2 中生成，提示词为 skill 原始返回，未做二次润色。</span>
@@ -999,7 +997,6 @@
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
-  function pad2(n){ return (n < 10 ? "0" : "") + n; }
 
   /* Count how much the user actually typed: one token per CJK character,
      one per word elsewhere. Default order is shortest input first. */
@@ -1012,7 +1009,13 @@
     return cjk + words;
   }
   var TOK = CASES.map(function(c){ return inputTokens(c.input); });
+  /* First three are hand-picked; everything else keeps the input-length order. */
+  var PIN = [1, 11, 12];
+  var PINI = CASES.map(function(c){ return PIN.indexOf(c.n); });
   var VIEW = CASES.map(function(c, i){ return i; }).sort(function(a, b){
+    var pa = PINI[a] < 0 ? PIN.length : PINI[a];
+    var pb = PINI[b] < 0 ? PIN.length : PINI[b];
+    if (pa !== pb) return pa - pb;
     if (TOK[a] !== TOK[b]) return TOK[a] - TOK[b];
     return CASES[a].n - CASES[b].n;
   });
@@ -1031,7 +1034,7 @@
           '<span class="meta">' +
             '<h3><span class="i18n-zh">' + esc(c.titleZh) + '</span>' +
               '<span class="i18n-en">' + esc(c.titleEn) + '</span></h3>' +
-            '<span class="wk"><span class="num">' + pad2(c.n) + '</span>' +
+            '<span class="wk">' +
               '<span class="i18n-zh">' + esc(c.work) + ' · 输入 ' + TOK[i] + ' 词</span>' +
               '<span class="i18n-en">' + esc(c.workEn) + ' · ' + TOK[i] + ' words in</span>' +
             '</span>' +
@@ -1080,7 +1083,7 @@
     lbImg.src = c.img;
     lbImg.alt = c.titleEn;
     document.getElementById("lbKicker").textContent =
-      "CASE " + pad2(c.n) + " / " + CASES.length + " · " +
+      (posInView(lbIndex) + 1) + " / " + CASES.length + " · " +
       (document.body.getAttribute("data-lang") === "en"
         ? TOK[lbIndex] + " words in"
         : "输入 " + TOK[lbIndex] + " 词");
