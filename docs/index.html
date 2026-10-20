@@ -310,11 +310,10 @@
   .ccard:hover img,.ccard:focus-visible img{transform:scale(1.045);}
   .ccard:focus-visible{outline:none;}
   .ccard:focus-visible .thumb{outline:2px solid var(--accent);outline-offset:2px;}
-  .ccard .meta{display:block;padding:11px 2px 0;}
-  .ccard .meta h3{margin:0 0 4px;font-size:14.5px;line-height:1.45;font-weight:650;
+  .ccard .meta{display:block;padding:12px 2px 0;}
+  .ccard .meta h3{margin:0;font-size:14.5px;line-height:1.45;font-weight:650;
     letter-spacing:-.02em;color:var(--text);
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .ccard .wk{font-size:12.5px;color:var(--muted2);}
   .ccard:hover .meta h3{color:var(--accent);}
 
   /* ---------- lightbox ---------- */
@@ -455,8 +454,8 @@
       </div>
     </div>
     <p class="order-note">
-      <span class="i18n-zh">前三张是挑出来的代表作；其余按<b>用户输入的词数</b>从少到多排列 —— 输入越短，扩写的落差越明显。中文按字计，英文按词计；每张卡片下方标出了它的输入长度。</span>
-      <span class="i18n-en">The first three are hand-picked; the rest are sorted by <b>how much the user typed</b>, shortest first — the shorter the input, the bigger the jump. CJK counts per character, everything else per word; each card shows its input length.</span>
+      <span class="i18n-zh">前三张是挑出来的代表作；其余按<b>用户输入的词数</b>从少到多排列 —— 输入越短，扩写的落差越明显。中文按字计，英文按词计；点开任意一张可以看到原始输入。</span>
+      <span class="i18n-en">The first three are hand-picked; the rest are sorted by <b>how much the user typed</b>, shortest first — the shorter the input, the bigger the jump. CJK counts per character, everything else per word; open any case to see the original input.</span>
     </p>
     <div class="cgrid" id="caseGrid"></div>
     <p style="margin-top:20px;font-size:13px;color:var(--muted2);text-align:center;">
@@ -725,7 +724,7 @@
           <li>新增 <b>24 个真实案例</b>：原始输入、skill 返回的完整提示词、Krea 2 成图，位置就在 Hero 正下方</li>
           <li>点开任意案例看大图与全文，支持 <kbd>←</kbd> <kbd>→</kbd> 翻页、<kbd>Esc</kbd> 关闭</li>
           <li>每个案例有独立链接（如 <code>#case-7</code>），可直接分享单张</li>
-          <li>整站视觉改版：暖白底、图片优先，卡片编号整个去掉，旧版日志折叠收起</li>
+          <li>整站视觉改版：暖白底、图片优先，卡片编号与图下小字整条去掉，旧版日志折叠收起</li>
           <li>板块顺序重排：案例 → 能力 → 为什么 → 画风 → 安装 → 边界 → 工作流 → 更新日志</li>
           <li>首三张固定为千寻 × 龙猫、海绵宝宝 × 派大星、卡尔 · 气球屋，其余仍按输入词数排序</li>
         </ul>
@@ -733,7 +732,7 @@
           <li>Added <b>24 real cases</b> — original input, the full prompt the skill returned, and the Krea 2 render, right under the hero</li>
           <li>Open any case for the full image and text; <kbd>←</kbd> <kbd>→</kbd> page through, <kbd>Esc</kbd> closes</li>
           <li>Every case has its own shareable link, e.g. <code>#case-7</code></li>
-          <li>Visual refresh: warm off-white, image-first cards, the card index dropped entirely, older entries folded</li>
+          <li>Visual refresh: warm off-white, image-first cards, both the index and the small caption line gone, older entries folded</li>
           <li>Section order reshuffled: cases → features → why → styles → install → limits → workflow → changelog</li>
           <li>The first three cards are pinned: Chihiro &amp; Totoro, SpongeBob &amp; Patrick, Carl and the balloon house — the rest still follow input length</li>
         </ul>
@@ -1034,10 +1033,6 @@
           '<span class="meta">' +
             '<h3><span class="i18n-zh">' + esc(c.titleZh) + '</span>' +
               '<span class="i18n-en">' + esc(c.titleEn) + '</span></h3>' +
-            '<span class="wk">' +
-              '<span class="i18n-zh">' + esc(c.work) + ' · 输入 ' + TOK[i] + ' 词</span>' +
-              '<span class="i18n-en">' + esc(c.workEn) + ' · ' + TOK[i] + ' words in</span>' +
-            '</span>' +
           '</span>' +
         '</div>';
       }).join("");
@@ -1083,10 +1078,7 @@
     lbImg.src = c.img;
     lbImg.alt = c.titleEn;
     document.getElementById("lbKicker").textContent =
-      (posInView(lbIndex) + 1) + " / " + CASES.length + " · " +
-      (document.body.getAttribute("data-lang") === "en"
-        ? TOK[lbIndex] + " words in"
-        : "输入 " + TOK[lbIndex] + " 词");
+      (posInView(lbIndex) + 1) + " / " + CASES.length;
     document.getElementById("lbTitleZh").textContent = c.titleZh;
     document.getElementById("lbTitleEn").textContent = c.titleEn;
     document.getElementById("lbWorkZh").textContent = c.work;

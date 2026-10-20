@@ -50,6 +50,8 @@
   导航同步调整；「为什么」紧跟能力之后，工作流与日志沉到页尾
 - 画廊卡片上的编号整个去掉，标题下的说明只留「作品 · 输入 N 词」；灯箱顶部改成「序号 / 24」的位置指示，
   翻页时连续，不再显示与排序无关的固定编号
+- 图下那行小字（「作品 · 输入 N 词」）也一并去掉，卡片只剩一张图和一行标题；灯箱顶部的词数同去，
+  只留「序号 / 24」——原始输入就在灯箱里，不缺这一处
 - 首三张固定为千寻 × 龙猫、海绵宝宝 × 派大星、卡尔 · 气球屋，其余仍按输入词数从少到多
 - 示例统一换成「海绵宝宝和派大星」（即画廊里第 11 个案例的真实会话）：
   `references/examples.md` 的第一个示例、两份 README 的「使用 / 输出」、落地页安装区的示例命令三处同步
@@ -58,8 +60,7 @@
 
 - Background moves from pure white to a warm off-white `#fcfcfb` with a barely-there paper grain;
   sections now alternate between plain and lightly tinted bands on a consistent 84px vertical rhythm
-- Gallery cards lose the number pill that sat on top of each image — the index moves down into the muted
-  caption line, so nothing covers the artwork
+- Gallery cards lose the number pill that sat on top of each image, so nothing covers the artwork
 - The eight capability cards gain a ninth "go install" card, so the 3×3 grid no longer ends on an orphan
 - The changelog opens the current version only; 1.5.0 and older fold into "six earlier versions",
   cutting the page length roughly in half
@@ -72,6 +73,8 @@
   following along: "why" now sits right after the features, and the workflow and changelog sink to the end of the page
 - Card indices are gone entirely; the caption is just "work · N words in", and the lightbox header becomes a
   continuous "12 / 24" position indicator instead of a fixed case number that ignored the on-screen order
+- That caption line goes too: a card is now one image and one title, and the lightbox header keeps only "12 / 24"
+  — the original input already sits inside the lightbox, so the word count was pure repetition
 - The first three cards are pinned: Chihiro & Totoro, SpongeBob & Patrick, Carl and the balloon house
 - Doc examples now use SpongeBob and Patrick Star (the real session behind gallery case 11): the first example in
   `references/examples.md`, the "Use / Output" blocks in both READMEs, and the sample command in the install section
