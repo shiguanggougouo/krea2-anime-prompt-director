@@ -10,6 +10,8 @@
 
 - 新增 **24 组真实案例**：原始输入 + skill 返回的完整 POSITIVE 提示词 + Krea 2 成图
 - 画廊位于 Hero 正下方，成为页面核心：3 列卡片（移动端 1 列）、滚动带横向预览、点击开灯箱
+- 移除了 Hero 的「输入 → 输出」终端演示，以及原来的 6 组 tab 示例区 —— 它们与 24 个真实案例重复，
+  留着反而分散注意力；页面因此从 88KB 降到 64KB，导航也更短
 - 灯箱内含大图、双语标题、作品名、中文画面摘要、完整输入与输出，输出可一键复制
 - 支持 `←` `→` 翻页、`Esc` 关闭，以及 `#case-7` 这样的深链接直接分享单个案例
 - 图片按用途分三档压缩：1600px 大图（灯箱）、760px 缩略（网格）、440px 迷你（滚动带）
@@ -21,6 +23,8 @@
 
 - 24 real cases: the original one-line input, the full POSITIVE prompt the skill returned, and the Krea 2 render
 - The gallery sits right under the hero as the page's centrepiece: 3-column cards, a marquee strip, and a lightbox on click
+- Removed the hero's "input → output" terminal mock-up and the old six-tab examples section — both duplicated
+  what the 24 real cases already show; the page drops from 88KB to 64KB and the nav gets shorter
 - Lightbox shows the full image, bilingual title, work name, a Chinese summary, and copyable input and output
 - Arrow-key paging, Esc to close, and shareable deep links such as `#case-7`
 - Three image sizes: 1600px for the lightbox, 760px for the grid, 440px for the strip
