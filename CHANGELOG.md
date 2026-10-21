@@ -4,6 +4,25 @@
 
 ---
 
+## Repo — 2026-10-21（README 案例图墙 / case wall in the README）
+
+**仓库首页直接看到 24 组案例成图**（仓库更新，非技能版本变更）
+
+- README 中英两版各新增「24 组真实案例」图墙：3 列 × 8 行，每格是成图 + 作品与场景名 + 该案例的原始输入
+- 图片直接引用仓库内已有的 `docs/gallery/`：网格用 760px 缩略图，点图打开 1600px 大图，
+  也就是案例图此前已在仓库里（`docs/gallery/` 共 24 张 × 3 档），现在不用打开 Pages 也能看到
+- 顺序与在线画廊一致：前三张固定（千寻 × 龙猫、海绵宝宝 × 派大星、卡尔气球屋），其余按输入词数从少到多
+
+**Case wall in the README**
+
+- Both README editions gain a 24-case image wall: three columns, each cell showing the render, the work
+  and scene name, and the exact input that produced it
+- Images are referenced straight from `docs/gallery/` in this repo (760px in the grid, 1600px on click),
+  so the case images are visible on the repo home page instead of only on GitHub Pages
+- Order matches the online gallery: three pinned cases first, then shortest input first
+
+---
+
 ## Site — 2026-10-20（案例画廊 / case gallery）
 
 **落地页新增 24 个真实案例画廊**（网页更新，非技能版本变更）
